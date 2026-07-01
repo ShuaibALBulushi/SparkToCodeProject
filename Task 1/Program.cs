@@ -403,7 +403,7 @@
             {
                 case "A":
                     cost = 1;
-                    if(weight > 5)
+                    if(weight > 5 && weight < 10)
                     {
                         totalCost = cost + 2;
                         Console.WriteLine("base cost: " + cost + " OMR");
@@ -428,7 +428,7 @@
 
                 case "B":
                     cost = 3;
-                    if (weight > 5)
+                    if (weight > 5 && weight < 10)
                     {
                         totalCost = cost + 2;
                         Console.WriteLine("base cost: " + cost + " OMR");
@@ -453,7 +453,7 @@
 
                 case "C":
                     cost = 7;
-                    if (weight > 5)
+                    if (weight > 5 && weight < 10)
                     {
                         totalCost = cost + 2;
                         Console.WriteLine("base cost: " + cost + " OMR");
