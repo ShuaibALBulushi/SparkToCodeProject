@@ -379,6 +379,109 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+
+            Task 12:
+            An online store calculates shipping cost based on the destination region and the package weight (in kg). Ask the
+            user to enter a region code ('A' for local, 'B' for national, 'C' for international) and the package weight.
+
+            */
+
+            Console.Write("\nPlease enter a region code ('A' for local, 'B' for national, 'C' for international): ");
+            string code = Console.ReadLine();
+
+            Console.Write("\nPlease enter package weight: ");
+            double weight = double.Parse(Console.ReadLine());
+
+            int cost = 0;
+            int totalCost = 0;
+
+            switch (code)
+            {
+                case "A":
+                    cost = 1;
+                    if(weight > 5)
+                    {
+                        totalCost = cost + 2;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 2 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    else if(weight > 10)
+                    {
+                        totalCost = cost + 5;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 5 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    else
+                    {
+                        totalCost = cost;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 0 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    break;
+
+                case "B":
+                    cost = 3;
+                    if (weight > 5)
+                    {
+                        totalCost = cost + 2;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 2 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    else if (weight > 10)
+                    {
+                        totalCost = cost + 5;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 5 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    else
+                    {
+                        totalCost = cost;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 0 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    break;
+
+                case "C":
+                    cost = 7;
+                    if (weight > 5)
+                    {
+                        totalCost = cost + 2;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 2 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    else if (weight > 10)
+                    {
+                        totalCost = cost + 5;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 5 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    else
+                    {
+                        totalCost = cost;
+                        Console.WriteLine("base cost: " + cost + " OMR");
+                        Console.WriteLine("extra charge: " + 0 + " OMR");
+                        Console.WriteLine("total shipping cost: " + totalCost + " OMR");
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid region");
+                    break;
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
