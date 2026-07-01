@@ -42,6 +42,23 @@
             Console.WriteLine("The Area of the Rectangle = " + Area);
             Console.WriteLine("The Perimeter of the Rectangle = " + Perimeter);
 
+            ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            // Task 3:Ask the user to enter a whole number, then determine whether it is even or odd and print the result
+
+            Console.Write("\nPlease Enter the Number: ");
+            int Num = int.Parse(Console.ReadLine());
+
+            if (Num%2==0)
+            {
+                Console.WriteLine("Number " + Num + " is Even");
+            }
+            else
+            {
+                Console.WriteLine("Number " + Num + " is Odd");
+            }
         }
     }
 }
