@@ -209,7 +209,7 @@
             Console.Write("\nPlease Enter Your total Bill amount: ");
             int bill = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Are you a loyality member? ");
+            Console.Write("Are you a loyality member? ");
             bool loyality = bool.Parse(Console.ReadLine());
 
             double discount = 0;
@@ -349,10 +349,36 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
-            
 
 
 
+            /*
+             
+             Task 11:
+             A bank wants a quick eligibility check for a personal loan. Ask the user to enter their age, monthly income, and
+             whether they have an existing loan (yes/no). Decide whether they are eligible.
+
+             */
+
+            Console.Write("\nPlease Enter Your Age to check if your are eligible to get loan: ");
+            int AgeForLoan = int.Parse(Console.ReadLine());
+
+            Console.Write("Please Enter Your monthly income: ");
+            int income = int.Parse(Console.ReadLine());
+
+            Console.Write("do you have an existing loan?  ");
+            bool haveLoan = bool.Parse(Console.ReadLine());
+
+            if (AgeForLoan >= 21 && AgeForLoan <= 60 && income >= 400 && !haveLoan)
+            {
+                Console.WriteLine("you are eligible to have a loan");
+            }
+            else
+            {
+                Console.WriteLine("age out of range, income too low, or has an existing loan");
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
