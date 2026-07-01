@@ -526,6 +526,114 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+
+            Task 14:
+            Build a simplified single-item checkout calculator for an online store. Ask the user to enter a product code (1, 2, or
+            3), the quantity they want to buy, and whether they have a discount coupon (yes/no).
+
+            */
+
+            Console.Write("\nPlease enter product code (1.Headphones, 2.Keyboard, 3.Mouse): ");
+            int pro_code = int.Parse(Console.ReadLine());
+
+            Console.Write("Please enter the quantity: ");
+            int quantity = int.Parse(Console.ReadLine());
+
+            Console.Write("do you have a discount coupon: ");
+            bool coupon = bool.Parse(Console.ReadLine());
+
+            double price = 0;
+            double pro_discount = 0;
+            double subtotal = 0;
+            double tax = 0;
+            double finalTotal = 0;
+            double after_discount = 0;
+
+            switch (pro_code)
+            {
+                case 1:
+                    price = 8.5;
+                    subtotal = price * quantity;
+                    if(coupon && subtotal > 20)
+                    {
+                        pro_discount = subtotal * 0.1;
+                        after_discount = subtotal - pro_discount;
+                        tax = after_discount * 0.05;
+                        finalTotal = after_discount + tax;
+                        Console.WriteLine("subtotal = " + subtotal + " OMR");
+                        Console.WriteLine("discount amount = " + pro_discount + " OMR");
+                        Console.WriteLine("tax amount = "+ tax + " OMR");
+                        Console.WriteLine("Final total = " + finalTotal + " OMR");
+                    }
+                    else
+                    {
+                        tax = subtotal * 0.05;
+                        finalTotal = subtotal + tax;
+                        Console.WriteLine("subtotal = " + subtotal + " OMR");
+                        Console.WriteLine("discount amount = " + pro_discount + " OMR");
+                        Console.WriteLine("tax amount = " + tax + " OMR");
+                        Console.WriteLine("Final total = " + finalTotal + " OMR");
+                    }
+                    break;
+
+                case 2:
+                    price = 12;
+                    subtotal = price * quantity;
+                    if (coupon && subtotal > 20)
+                    {
+                        pro_discount = subtotal * 0.1;
+                        after_discount = subtotal - pro_discount;
+                        tax = after_discount * 0.05;
+                        finalTotal = after_discount + tax;
+                        Console.WriteLine("subtotal = " + subtotal + " OMR");
+                        Console.WriteLine("discount amount = " + pro_discount + " OMR");
+                        Console.WriteLine("tax amount = " + tax + " OMR");
+                        Console.WriteLine("Final total = " + finalTotal + " OMR");
+                    }
+                    else
+                    {
+                        tax = subtotal * 0.05;
+                        finalTotal = subtotal + tax;
+                        Console.WriteLine("subtotal = " + subtotal + " OMR");
+                        Console.WriteLine("discount amount = " + pro_discount + " OMR");
+                        Console.WriteLine("tax amount = " + tax + " OMR");
+                        Console.WriteLine("Final total = " + finalTotal + " OMR");
+                    }
+                    break;
+
+                case 3:
+                    price = 5;
+                    subtotal = price * quantity;
+                    if (coupon && subtotal > 20)
+                    {
+                        pro_discount = subtotal * 0.1;
+                        after_discount = subtotal - pro_discount;
+                        tax = after_discount * 0.05;
+                        finalTotal = after_discount + tax;
+                        Console.WriteLine("subtotal = " + subtotal + " OMR");
+                        Console.WriteLine("discount amount = " + pro_discount + " OMR");
+                        Console.WriteLine("tax amount = " + tax + " OMR");
+                        Console.WriteLine("Final total = " + finalTotal + " OMR");
+                    }
+                    else
+                    {
+                        tax = subtotal * 0.05;
+                        finalTotal = subtotal + tax;
+                        Console.WriteLine("subtotal = " + subtotal + " OMR");
+                        Console.WriteLine("discount amount = " + pro_discount + " OMR");
+                        Console.WriteLine("tax amount = " + tax + " OMR");
+                        Console.WriteLine("Final total = " + finalTotal + " OMR");
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid product code");
+                    break;
+            }
         }
     }
 }
