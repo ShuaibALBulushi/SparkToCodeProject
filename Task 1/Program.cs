@@ -634,6 +634,74 @@
                     Console.WriteLine("Invalid product code");
                     break;
             }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+
+            Task 15:
+            A university admission office wants a decision tool. Ask the user to enter the program type ('S' for Science, 'A' for
+            Arts), the applicant's GPA (out of 4.0), their entrance exam score (out of 100), and whether they have an
+            extracurricular achievement (yes/no).
+
+            */
+
+            Console.Write("\nPlease enter the program type ('S' for Science, 'A' for Arts: ");
+            string pro_type = Console.ReadLine();
+
+            Console.Write("Please enter your GPA (out of 4.0): ");
+            double GPA = double.Parse(Console.ReadLine());
+
+            Console.Write("Please enter your entrance exam score (out of 100): ");
+            double exam = double.Parse(Console.ReadLine());
+
+            Console.Write("do you have an extracurricular achievement? ");
+            bool achievment = bool.Parse(Console.ReadLine());
+
+            switch (pro_type)
+            {
+                case "S":
+                    if(GPA >= 3.0 && exam >= 75)
+                    {
+                        Console.WriteLine("Admitted in Science");
+                    }
+                    else
+                    {
+                        if (achievment)
+                        {
+                            Console.WriteLine("Conditionally Admitted in Science");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not Admitted in Science");
+                        }
+                    }
+                    break;
+
+                case "A":
+                    if (GPA >= 2.5 && exam >= 60)
+                    {
+                        Console.WriteLine("Admitted in Arts");
+                    }
+                    else
+                    {
+                        if (achievment)
+                        {
+                            Console.WriteLine("Conditionally Admitted in Arts");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Not Admitted in Arts");
+                        }
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid program type");
+                    break;
+            }
         }
     }
 }
