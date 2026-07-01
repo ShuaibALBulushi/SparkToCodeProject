@@ -27,6 +27,21 @@
             ///////////////////////////////////////////////////////////////////////////////////////
 
 
+
+            //Task 2:Ask the user to enter the length and width of a rectangle as input, then calculate and display its area and perimeter.
+
+            Console.Write("\nPlease Enter the Length of the regtangle: ");
+            double length = double.Parse(Console.ReadLine());
+
+            Console.Write("Please Enter the Width of the regtangle: ");
+            double width = double.Parse(Console.ReadLine());
+
+            double Area = length * width;
+            double Perimeter = 2 * (length + width);
+
+            Console.WriteLine("The Area of the Rectangle = " + Area);
+            Console.WriteLine("The Perimeter of the Rectangle = " + Perimeter);
+
         }
     }
 }
