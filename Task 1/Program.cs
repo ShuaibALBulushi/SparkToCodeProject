@@ -280,6 +280,75 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 10:
+             Ask the user to enter two numbers and an operator character (+, -, *, /, or %). Perform the matching operation and
+             print the result using a switch-case statement on the operator.
+
+             */
+
+            Console.Write("\nPlease Enter a First number: ");
+            int firstNum = int.Parse(Console.ReadLine());
+
+            Console.Write("Please Enter a second number: ");
+            int secondNum = int.Parse(Console.ReadLine());
+
+            Console.Write("Please Enter one of the Operators (+, -, *, /, or %): ");
+            string operate = Console.ReadLine();
+
+            double result = 0;
+
+            switch (operate)
+            {
+                case "+":
+                    result = firstNum + secondNum;
+                    Console.WriteLine("Result = " + result);
+                    break;
+
+                case "-":
+                    result = firstNum - secondNum;
+                    Console.WriteLine("Result = " + result);
+                    break;
+
+                case "*":
+                    result = firstNum * secondNum;
+                    Console.WriteLine("Result = " + result);
+                    break;
+
+                case "/":
+                    if(secondNum == 0)
+                    {
+                        Console.WriteLine("Cannot divide by zero");
+                    }
+                    else
+                    {
+                        result = firstNum / secondNum;
+                        Console.WriteLine("Result = " + result);
+                    }
+                    break;
+
+                case "%":
+                    if (secondNum == 0)
+                    {
+                        Console.WriteLine("Cannot divide by zero");
+                    }
+                    else
+                    {
+                        result = firstNum % secondNum;
+                        Console.WriteLine("Result = " + result);
+                    }
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid operator");
+                    break;
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
             
 
 
