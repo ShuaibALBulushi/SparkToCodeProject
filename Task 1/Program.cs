@@ -160,6 +160,39 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 7:
+             Ask the user to enter their age and calculate the ticket price based on the following age groups: 0-12, 13-59, and 60
+             and above.
+
+             */
+
+            Console.Write("\nPlease Enter Your Age: ");
+            int Age_Check = int.Parse(Console.ReadLine());
+
+            if(Age_Check >= 0 && Age_Check <= 12) 
+            {
+                Console.WriteLine("Ticket Category: Children");
+                Console.WriteLine("Ticket Price: 2 OMR");
+            }
+            else if(Age_Check >= 13 && Age_Check < 60)
+            {
+                Console.WriteLine("Ticket Category: Adults");
+                Console.WriteLine("Ticket Price: 5 OMR");
+            }
+            else if(Age_Check >= 60)
+            {
+                Console.WriteLine("Ticket Category: Seniors");
+                Console.WriteLine("Ticket Price: 3 OMR");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Age");
+            }
         }
     }
 }
