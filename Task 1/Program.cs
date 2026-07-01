@@ -482,6 +482,50 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+
+            Task 13:
+            Ask the user to enter the lengths of three sides of a triangle, then determine whether they form a valid triangle, and if
+            so, classify its type.
+
+            */
+
+            Console.Write("\nPlease enter the length of the 1st side of the triangle: ");
+            int firstSide = int.Parse(Console.ReadLine());
+
+            Console.Write("\nPlease enter the length of the 2nd side of the triangle: ");
+            int secondSide = int.Parse(Console.ReadLine());
+
+            Console.Write("\nPlease enter the length of the 3rd side of the triangle: ");
+            int thirdSide = int.Parse(Console.ReadLine());
+
+            if(firstSide + secondSide > thirdSide && firstSide + thirdSide > secondSide && secondSide + thirdSide > firstSide)
+            {
+                if(firstSide == secondSide && firstSide == thirdSide)
+                {
+                    Console.WriteLine("Equilateral");
+                }
+                else
+                {
+                    if(firstSide == secondSide || firstSide == thirdSide || secondSide == thirdSide)
+                    {
+                        Console.WriteLine("Isosceles");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Scalene");
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("invalid triangle");
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
