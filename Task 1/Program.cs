@@ -127,6 +127,39 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 6:
+             Ask the user to enter a temperature in Celsius, convert it to Fahrenheit, then classify the weather based on the
+             Celsius value
+
+             */
+
+            Console.Write("\nPlease Enter the tempreture in Celsius: ");
+            int Celsius = int.Parse(Console.ReadLine());
+
+            int Fahrenheit = (Celsius * 9 / 5) + 32;
+
+            if(Celsius < 10)
+            {
+                Console.WriteLine("Tempretur in Fahrenheit: " + Fahrenheit);
+                Console.WriteLine("weather classification: Cold");
+            }
+            else if(Celsius >= 10 && Celsius <= 30) 
+            {
+                Console.WriteLine("Tempretur in Fahrenheit: " + Fahrenheit);
+                Console.WriteLine("weather classification: Mild");
+            }
+            else
+            {
+                Console.WriteLine("Tempretur in Fahrenheit: " + Fahrenheit);
+                Console.WriteLine("weather classification: Hot");
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
         }
     }
 }
