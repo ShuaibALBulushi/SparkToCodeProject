@@ -193,6 +193,48 @@
             {
                 Console.WriteLine("Invalid Age");
             }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 8:
+             Ask the user to enter their total bill amount and whether they are a loyalty member (yes/no). Apply a discount only
+             when both conditions below are satisfied.
+
+             */
+
+            Console.Write("\nPlease Enter Your total Bill amount: ");
+            int bill = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Are you a loyality member? ");
+            bool loyality = bool.Parse(Console.ReadLine());
+
+            double discount = 0;
+
+            if (bill > 20 && loyality == true)
+            {
+                discount = bill * 0.15;
+                double final_bill = bill - discount;
+                Console.WriteLine("your Original bill: " + bill + " OMR");
+                Console.WriteLine("your discount amount: " + discount + " OMR");
+                Console.WriteLine("your final amount to pay: " + final_bill + " OMR");
+            }
+            else
+            {
+                double final_bill = bill - discount;
+                Console.WriteLine("your Original bill: " + bill + " OMR");
+                Console.WriteLine("your discount amount: " + discount + " OMR");
+                Console.WriteLine("your final amount to pay: " + final_bill + " OMR");
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
+            
+
+
+
         }
     }
 }
