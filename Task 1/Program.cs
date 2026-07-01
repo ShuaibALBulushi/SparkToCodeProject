@@ -231,6 +231,55 @@
             }
 
             ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 9:
+             Ask the user to enter a number from 1 to 7 representing a day of the week, then print the full day name using a
+             switch-case statement.
+             */
+
+            Console.Write("\nPlease Enter a number from 1 to 7 representing a day of the week: ");
+            int day = int.Parse(Console.ReadLine());
+
+            switch (day)
+            {
+                case 1:
+                    Console.WriteLine("Today is Sunday");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Today is Monday");
+                    break;
+
+                case 3:
+                    Console.WriteLine("Today is Tuesday");
+                    break;
+
+                case 4:
+                    Console.WriteLine("Today is Wednesday");
+                    break;
+
+                case 5:
+                    Console.WriteLine("Today is Thursday");
+                    break;
+
+                case 6:
+                    Console.WriteLine("Today is Friday");
+                    break;
+
+                case 7:
+                    Console.WriteLine("Today is Saturday");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid day number");
+                    break;
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
             
 
 
