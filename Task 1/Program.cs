@@ -59,6 +59,39 @@
             {
                 Console.WriteLine("Number " + Num + " is Odd");
             }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+            Task 4:
+            Ask the user to enter their age and whether they hold a valid national ID (yes/no). Determine whether the person is
+            eligible to vote.
+            
+            */
+
+            Console.Write("\nPlease Enter your Age: ");
+            int AgeCheck = int.Parse(Console.ReadLine());
+
+            Console.Write("Do you have a valid national ID? ");
+            bool ValidID = bool.Parse(Console.ReadLine());
+
+            if(AgeCheck >= 18 && ValidID == true)
+            {
+                Console.WriteLine("You are eligible to vote");
+            }
+            else
+            {
+                Console.WriteLine("You are not eligible to vote");
+            }
+
+            ///////////////////////////////////////////////////////////////////////////////////////
+            
+
+
+
         }
     }
 }
