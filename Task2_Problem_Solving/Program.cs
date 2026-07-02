@@ -43,6 +43,27 @@
                 sum += i;
             }
             Console.WriteLine("Sum of All Numbers = " + sum);
+
+            //////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 3:
+             Ask the user to enter a number, then print its multiplication 
+             table from 1 to 10 using a single for loop.
+
+             */
+
+            Console.Write("\nPlease Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            for(int i = 1; i <= 10; i++)
+            {
+                Console.WriteLine(num + " x " + i + " = " + num * i);
+            }
+
         }
     }
 }
