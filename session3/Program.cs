@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!!");
+            //list
+            List<string> fruits= ["apple", "banana", "cherry"];
+            Console.WriteLine(fruits);
+
+            for(int i = 0; i<=2; i++)
+            {
+                Console.WriteLine(fruits[i]);
+            }
         }
     }
 }
+
