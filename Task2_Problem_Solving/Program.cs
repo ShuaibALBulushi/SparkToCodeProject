@@ -272,6 +272,139 @@
                 result += i;
             }
             Console.WriteLine("Sum = " + result);
+
+            //////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 10:
+             Build a simplified ATM simulation. The correct PIN is fixed in the code (for example, 1234), and the starting balance
+             is fixed at 100.000 OMR
+
+             */
+
+            int tries = 1;
+            bool hold = false;
+            int balance = 100;
+            bool loggedIn = false;
+
+
+            while (!hold && !loggedIn)
+            {
+                try
+                {
+                    Console.Write("\nplease Enter the PIN: ");
+                    int PIN = int.Parse(Console.ReadLine());
+
+                    if (PIN == 1234)
+                    {
+                        loggedIn = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("wrong PIN");
+                        tries++;
+                        if (tries > 3)
+                        {
+                            Console.WriteLine("Card is Blocked");
+                            hold = true;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("the program only accepts whole numbers");
+                    tries++;
+                    if (tries > 3)
+                    {
+                        Console.WriteLine("Card is Blocked");
+                        hold = true;
+                    }
+                }
+            }
+
+            while (loggedIn && !hold)
+            {
+                Console.WriteLine("\nMenu options:\n1) Deposit\n2) Withdraw\n3) Check Balance\n4) Exit");
+                try
+                {
+                    int option = int.Parse(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            try
+                            {
+                                Console.WriteLine("Enter the amout you want to deposit: ");
+                                int deposit = int.Parse(Console.ReadLine());
+
+                                if (deposit > 0)
+                                {
+                                    balance = balance + deposit;
+                                    Console.WriteLine("deposit is successful");
+                                    Console.WriteLine("Balance: " + balance);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("zero or negative numbers are rejected");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("the program only accepts whole numbers");
+                            }
+                            break;
+
+                        case 2:
+                            try
+                            {
+                                Console.WriteLine("Enter the amout you want to withdraw: ");
+                                int withdraw = int.Parse(Console.ReadLine());
+
+                                if (withdraw > 0)
+                                {
+                                    if (withdraw <= balance)
+                                    {
+                                        balance = balance - withdraw;
+                                        Console.WriteLine("withdrawal is successful");
+                                        Console.WriteLine("Balance: " + balance);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Amounts greater than balance are rejected");
+                                    }
+                                }
+                                else
+                                {
+                                    Console.WriteLine("zero or negative numbers are rejected");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("the program only accepts whole numbers");
+                            }
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Balance: " + balance);
+                            break;
+
+                        case 4:
+                            hold = true;
+                            break;
+
+                        default:
+                            Console.WriteLine("Invalid option");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("the program only accepts whole numbers");
+                }
+            }
         }
+        
     }
 }
