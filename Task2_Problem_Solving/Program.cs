@@ -129,6 +129,38 @@
 
             }
             while(!correctGuess);
+
+            //////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 6:
+             Ask the user to enter two numbers and divide the first by the second, using try-catch to handle any errors safely.
+
+             */
+            try
+            {
+                Console.Write("\nplease Enter the first Number: ");
+                int firstNum = int.Parse(Console.ReadLine());
+
+                Console.Write("please Enter the second Number: ");
+                int secondNum = int.Parse(Console.ReadLine());
+
+                int res = firstNum / secondNum;
+                Console.WriteLine("result = " + res);
+            }
+            catch(DivideByZeroException ex)
+            {
+                Console.WriteLine("The second Number cannot be zero");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("input is not a valid number");
+            }
+
+
         }
     }
 }
