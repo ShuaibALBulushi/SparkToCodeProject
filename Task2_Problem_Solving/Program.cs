@@ -203,6 +203,32 @@
                 }
                 
             }
+
+            //////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 8:
+             Ask the user to enter a positive whole number N, then use a for loop to calculate the sum of only the even numbers
+             from 1 to N.
+
+             */
+
+            Console.Write("\nplease Enter  a positive whole number: ");
+            int positive = int.Parse(Console.ReadLine());
+
+            int sumResult = 0;
+
+            for (int i = 1; i <= positive; i++)
+            {
+                if(i%2 == 0)
+                {
+                    sumResult += i;
+                }
+            }
+            Console.WriteLine("Sum of even numbers = " + sumResult);
         }
     }
 }
