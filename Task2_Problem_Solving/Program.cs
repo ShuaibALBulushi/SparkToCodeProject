@@ -160,7 +160,49 @@
                 Console.WriteLine("input is not a valid number");
             }
 
+            //////////////////////////////////////////////////////////////////////////
 
+
+
+            /*
+             
+             Task 7:
+             Build a menu-driven program using a while loop. The menu has three options: 1) Say Hello, 2) Show Current
+             Time-of-day Greeting (just print a fixed message), 3) Exit. Keep showing the menu and asking for a choice until the
+             user selects Exit.
+
+             */
+
+            bool exit = false;
+
+            while (!exit)
+            {
+                try
+                {
+                    Console.WriteLine("choose one of The menu three options:\n1) Say Hello\n2) Show Current Time-of-day Greeting\n3) Exit");
+                    int choise = int.Parse(Console.ReadLine());
+                    switch (choise)
+                    {
+                        case 1:
+                            Console.WriteLine("Hello");
+                            break;
+                        case 2:
+                            Console.WriteLine("greetings,today is 7/2/2026 10:15 AM");
+                            break;
+                        case 3:
+                            exit = true;
+                            break;
+                        default:
+                            Console.WriteLine("Invalid option");
+                            break;
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                
+            }
         }
     }
 }
