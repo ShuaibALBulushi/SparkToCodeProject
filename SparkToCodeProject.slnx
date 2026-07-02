@@ -1,6 +1,7 @@
 <Solution>
   <Project Path="cSharpApplication/cSharpApplication.csproj" />
   <Project Path="session2/session2.csproj" Id="e8798989-5f53-465d-ace7-15606d04b84c" />
+  <Project Path="session3/session3.csproj" Id="aaed1ff2-2921-4cf0-937c-6684e59e273b" />
   <Project Path="Task 1/Task 1.csproj" Id="92fc8686-89bd-42c4-9e04-9143e7f8f81a" />
   <Project Path="Task2_Problem_Solving/Task2_Problem_Solving.csproj" Id="726de211-e3f3-47de-8d7f-b675d6142272" />
 </Solution>
