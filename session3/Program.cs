@@ -15,7 +15,7 @@
 
             List<string> names = ["Ali", "Osama", "Salim"];
 
-            //while loop accessing list
+            //while loop accessing list!!
             int i = 0;
             while(i<=names.Count()-1)
             {
