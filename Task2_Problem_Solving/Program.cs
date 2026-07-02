@@ -64,6 +64,33 @@
                 Console.WriteLine(num + " x " + i + " = " + num * i);
             }
 
+            //////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 4:
+             The correct password is fixed in the code as "Spark2026". Use a while loop to keep asking the user to enter the
+             password until they type it correctly, then print "Access Granted".
+
+             */
+
+            bool correctpass = false;
+            while (!correctpass)
+            {
+                Console.WriteLine("Please Enter your password: ");
+                string pass = Console.ReadLine();
+                if(pass == "Spark2026")
+                {
+                    Console.WriteLine("Access Granted");
+                    correctpass = true;
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect password, try again");
+                }
+            }
         }
     }
 }
