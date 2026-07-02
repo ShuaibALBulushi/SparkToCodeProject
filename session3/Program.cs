@@ -8,17 +8,19 @@
             List<string> fruits= ["apple", "banana", "cherry"];
             Console.WriteLine(fruits);
 
-            for(int i = 0; i<=2; i++)
+            for(int j = 0; j<=2; j++)
             {
-                Console.WriteLine(fruits[i] + "fruit");
+                Console.WriteLine(fruits[j] + " fruit");
             }
 
             List<string> names = ["Ali", "Osama", "Salim"];
-            Console.WriteLine(fruits);
 
-            for (int i = 0; i <= 2; i++)
+           
+            int i = 0;
+            while(i<=names.Count()-1)
             {
                 Console.WriteLine(names[i] + " is Omani");
+                i++;
             }
         }
     }
