@@ -12,6 +12,14 @@
             {
                 Console.WriteLine(fruits[i] + "fruit");
             }
+
+            List<string> names = ["Ali", "Osama", "Salim"];
+            Console.WriteLine(fruits);
+
+            for (int i = 0; i <= 2; i++)
+            {
+                Console.WriteLine(names[i] + " is Omani");
+            }
         }
     }
 }
