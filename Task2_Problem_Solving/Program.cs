@@ -91,6 +91,44 @@
                     Console.WriteLine("Incorrect password, try again");
                 }
             }
+
+            //////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 5:
+             Fix a secret number in the code (for example, 42). Use a do-while loop to let the user keep guessing the number,
+             printing "Too high" or "Too low" after each wrong guess. When the user guesses correctly, print how many attempts
+             it took.
+
+             */
+
+            int attempt = 1;
+            bool correctGuess = false;
+            do
+            {
+                Console.WriteLine("\nguess the secret Number: ");
+                int numGuess = int.Parse(Console.ReadLine());
+                if(numGuess == 42)
+                {
+                    Console.WriteLine("The Number of attempts took to guess correctly: " + attempt);
+                    correctGuess = true;
+                }
+                else if(numGuess > 42)
+                {
+                    Console.WriteLine("Too High");
+                    attempt++;
+                }
+                else
+                {
+                    Console.WriteLine("Too Low");
+                    attempt++;
+                }
+
+            }
+            while(!correctGuess);
         }
     }
 }
