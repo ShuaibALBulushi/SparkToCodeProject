@@ -229,6 +229,49 @@
                 }
             }
             Console.WriteLine("Sum of even numbers = " + sumResult);
+
+            //////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 9:
+             Build a small program that keeps asking the user to enter a positive whole number until a valid one is provided, then
+             calculates and prints the sum of all whole numbers from 1 to that number.
+
+             */
+            bool stop = false;
+            int result = 0;
+            int number = 0;
+            do
+            {
+                try
+                {
+                    Console.Write("\nplease Enter  a positive whole number: ");
+                    number = int.Parse(Console.ReadLine());
+
+                    if(number > 0)
+                    {
+                        stop = true;
+                    }
+                    else
+                    {
+                    Console.WriteLine("zero or negative numbers are not accepted");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    Console.WriteLine("the program only accepts whole numbers");
+                }
+            }
+            while(!stop);
+
+            for(int i = 1; i <= number; i++)
+            {
+                result += i;
+            }
+            Console.WriteLine("Sum = " + result);
         }
     }
 }
