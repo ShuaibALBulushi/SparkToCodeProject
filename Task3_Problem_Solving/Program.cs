@@ -52,6 +52,23 @@
             Console.WriteLine("Lower case : " + name.ToLower());
             Console.WriteLine("Upper case : " + name.ToUpper());
             Console.WriteLine("Number of characters : " + name.Length);
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 4:
+             Ask the user to enter the number of days of a free trial, then calculate and print the date on which the trial ends,
+             starting from today             
+            */
+
+            Console.Write("\nEnter the number of days:");
+            int d = int.Parse(Console.ReadLine());
+
+            DateTime  today = DateTime.Today;
+            DateTime endDate = today.AddDays(d);
+            Console.WriteLine("Trial ends on: " + endDate.ToString("yyyy-MM-dd"));
         }
     }
 }
