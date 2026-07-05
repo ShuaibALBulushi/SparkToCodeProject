@@ -20,6 +20,21 @@
             int val = num2 - num1;
 
             Console.WriteLine("Difference = " + Math.Abs(val));
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 2:
+            Ask the user to enter a number, then print its square (power of 2) and its square root.
+             */
+
+            Console.Write("\nEnter the number:");
+            int n = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("square of number " + n + " = " + Math.Pow(n,2));
+            Console.WriteLine("square root of number " + n + " = " + Math.Sqrt(n));
         }
     }
 }
