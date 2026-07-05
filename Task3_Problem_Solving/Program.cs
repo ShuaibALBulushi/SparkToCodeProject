@@ -35,6 +35,23 @@
 
             Console.WriteLine("square of number " + n + " = " + Math.Pow(n,2));
             Console.WriteLine("square root of number " + n + " = " + Math.Sqrt(n));
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 3:
+             Ask the user to enter their full name, then print it in uppercase, in lowercase, and print how many characters it
+             contains.             
+            */
+
+            Console.Write("\nEnter your full name:");
+            string name = Console.ReadLine();
+
+            Console.WriteLine("Lower case : " + name.ToLower());
+            Console.WriteLine("Upper case : " + name.ToUpper());
+            Console.WriteLine("Number of characters : " + name.Length);
         }
     }
 }
