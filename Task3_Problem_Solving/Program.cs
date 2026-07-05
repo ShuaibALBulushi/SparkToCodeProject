@@ -118,6 +118,31 @@
                 Console.WriteLine("Password is week. It must be at least 8 characters long and not contain the word 'password'.");
             }
 
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 7:
+             Ask the user to enter the same name twice (once in each input), possibly typed with extra spaces or different casing,
+             and check whether the two entries actually refer to the same name.            
+            */
+
+
+            Console.Write("\nEnter your name:");
+            string name1 = Console.ReadLine();
+
+            Console.Write("\nEnter your name again:");
+            string name2 = Console.ReadLine();
+
+            if(name1.Trim().ToUpper() == name2.Trim().ToUpper())
+            {
+                Console.WriteLine("The two names are the same.");
+            }
+            else
+            {
+                Console.WriteLine("The two names are different.");
+            }
         }
     }
 
