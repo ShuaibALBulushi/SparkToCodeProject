@@ -286,6 +286,38 @@
                 }
             }
 
-        }
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 12:
+             Ask the user to enter their date of birth as text (e.g. "2000-05-14"). Calculate their age in full years as of today, and
+             also tell them which day of the week they were born on.
+            
+            */
+            try
+            {
+                Console.Write("\nEnter your date of birth (yyyy-MM-dd): ");
+                DateTime dob = DateTime.Parse(Console.ReadLine());
+
+                DateTime today1 = DateTime.Now;
+
+                int age = today1.Year - dob.Year;
+
+                if (today1.Month < dob.Month || (today1.Month == dob.Month && today1.Day < dob.Day))
+                {
+                    age--;
+                }
+                Console.WriteLine("You are " + age + " years old");
+                Console.WriteLine("the day you were born is " + dob.DayOfWeek);
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+
+            }
     }
+}
 }
