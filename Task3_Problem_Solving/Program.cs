@@ -180,7 +180,24 @@
                 Console.WriteLine("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
             }
 
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 9:
+             Ask the user to enter a decimal number, then print three different roundings of it: rounded to the nearest whole
+             number, always rounded up, and always rounded down.
             
+            */
+
+            Console.Write("\nEnter a decimal number: ");
+            double decimalNumber = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Rounded to the nearest whole number: " + Math.Round(decimalNumber));
+            Console.WriteLine("Always rounded up: " + Math.Ceiling(decimalNumber));
+            Console.WriteLine("Always rounded down: " + Math.Floor(decimalNumber));
         }
     }
 
