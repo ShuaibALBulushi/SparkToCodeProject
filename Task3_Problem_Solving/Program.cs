@@ -198,6 +198,34 @@
             Console.WriteLine("Rounded to the nearest whole number: " + Math.Round(decimalNumber));
             Console.WriteLine("Always rounded up: " + Math.Ceiling(decimalNumber));
             Console.WriteLine("Always rounded down: " + Math.Floor(decimalNumber));
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 10:
+             Ask the user to enter a full sentence and then a single word to search for. Find and print the position (index) where
+             that word first appears inside the sentence, and also where it last appears (in case it occurs more than once).
+            
+            */
+
+            Console.Write("\nEnter a full sentence: ");
+            string sentence = Console.ReadLine();
+
+            Console.Write("Enter a word to search for: ");
+            string wordToSearch = Console.ReadLine();
+
+            if (sentence.Contains(wordToSearch))
+            {
+                Console.WriteLine("The word " + wordToSearch + " first appears at index: " + sentence.IndexOf(wordToSearch));
+                Console.WriteLine("The word " + wordToSearch + " last appears at index: " + sentence.LastIndexOf(wordToSearch));
+            }
+            else
+            {
+                Console.WriteLine("The word " + wordToSearch + " was not found in the sentence.");
+            }
         }
     }
 
