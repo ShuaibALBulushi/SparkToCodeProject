@@ -4,24 +4,19 @@
     {
         static void Main(string[] args)
         {
-            //list
-            List<string> fruits= ["apple", "banana", "cherry"];
-            Console.WriteLine(fruits);
+            Console.WriteLine(Math.Pow(2, 3));
+            Console.WriteLine(Math.Sqrt(16));
 
-            for(int j = 0; j<=2; j++)
-            {
-                Console.WriteLine(fruits[j] + " fruit");
-            }
 
-            List<string> names = ["Ali", "Osama", "Salim"];
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.Today);
+            Console.WriteLine(DateTime.Today.AddDays(30));
 
-            //while loop accessing list!!
-            int i = 0;
-            while(i<=names.Count()-1)
-            {
-                Console.WriteLine(names[i] + " is Omani");
-                i++;
-            }
+            string word = "Hello World";
+            Console.WriteLine(word.ToUpper());
+            Console.WriteLine(word.Length);
+            Console.WriteLine(word.Substring(3,4));
+
         }
     }
 }
