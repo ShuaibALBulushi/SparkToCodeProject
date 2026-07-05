@@ -33,7 +33,7 @@
             Console.Write("\nEnter the number:");
             int n = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("square of number " + n + " = " + Math.Pow(n,2));
+            Console.WriteLine("square of number " + n + " = " + Math.Pow(n, 2));
             Console.WriteLine("square root of number " + n + " = " + Math.Sqrt(n));
 
             ///////////////////////////////////////////////////////////////////////////////
@@ -66,9 +66,36 @@
             Console.Write("\nEnter the number of days:");
             int d = int.Parse(Console.ReadLine());
 
-            DateTime  today = DateTime.Today;
+            DateTime today = DateTime.Today;
             DateTime endDate = today.AddDays(d);
             Console.WriteLine("Trial ends on: " + endDate.ToString("yyyy-MM-dd"));
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 5:
+             Ask the user to enter their raw exam score as a decimal number (e.g. 74.6), round it to the nearest whole number,
+             then decide if they passed.             
+            */
+
+            Console.Write("\nEnter your exam score:");
+            double exam = double.Parse(Console.ReadLine());
+
+            double roundedScore = Math.Round(exam);
+
+            if (roundedScore >= 60)
+            {
+                Console.WriteLine("You passed with a score of " + roundedScore);
+
+            }
+            else
+            {
+                Console.WriteLine("You failed with a score of " + roundedScore);
+            }
+
         }
     }
+
 }
