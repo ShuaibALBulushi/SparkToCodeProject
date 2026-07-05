@@ -95,6 +95,29 @@
                 Console.WriteLine("You failed with a score of " + roundedScore);
             }
 
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 6:
+             Ask the user to enter a password, then check whether it meets two basic conditions: it must be at least 8 characters
+             long, and it must not contain the word "password" in it.             
+            */
+
+            Console.Write("\nEnter your password:");
+            string pass = Console.ReadLine();
+
+            if (pass.Length >= 8 && !pass.ToLower().Contains("password"))
+            {
+                Console.WriteLine("Password is strong because length is >= 8 and it doesnt contain word (password)");
+            }
+            else
+            {
+                Console.WriteLine("Password is week. It must be at least 8 characters long and not contain the word 'password'.");
+            }
+
         }
     }
 
