@@ -135,7 +135,7 @@
             Console.Write("\nEnter your name again:");
             string name2 = Console.ReadLine();
 
-            if(name1.Trim().ToUpper() == name2.Trim().ToUpper())
+            if (name1.Trim().ToUpper() == name2.Trim().ToUpper())
             {
                 Console.WriteLine("The two names are the same.");
             }
@@ -155,7 +155,7 @@
              days, then determine whether the membership is still active today.
             
             */
-            
+
             try
             {
                 Console.Write("\nEnter your membership start date (yyyy-MM-dd): ");
@@ -165,7 +165,7 @@
                 int validDays = int.Parse(Console.ReadLine());
 
                 DateTime endDateMembership = startDateInput.AddDays(validDays);
-                if(DateTime.Today <= endDateMembership)
+                if (DateTime.Today <= endDateMembership)
                 {
                     Console.WriteLine("Your membership is still active.");
                 }
@@ -173,7 +173,7 @@
                 {
                     Console.WriteLine("Your membership has expired.");
                 }
-            
+
             }
             catch (FormatException)
             {
@@ -226,7 +226,66 @@
             {
                 Console.WriteLine("The word " + wordToSearch + " was not found in the sentence.");
             }
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 11:
+             Build a small OTP verification simulator. The program should generate a random 4-digit code (between 1000 and
+             9999), display it once to simulate "sending" it, and then ask the user to type the code back to verify it.
+            
+            */
+
+            Random random = new Random();
+            int otp = random.Next(1000, 9999);
+            Console.WriteLine("\nYour OTP code is " + otp);
+
+            int attempts = 1;
+
+            while (attempts <= 3)
+            {
+                try
+                {
+                    Console.Write("Enter the OTP code: ");
+                    int userInput = int.Parse(Console.ReadLine());
+
+                    if(userInput == otp) 
+                    { 
+                        Console.WriteLine("verified");
+                        break;
+                    }
+                    else
+                    {
+                        if(attempts == 3)
+                        {
+                            Console.WriteLine("Incorrect OTP. You have exceeded the maximum number of attempts.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Incorrect OTP. Please try again.");
+                        }
+                        attempts++;
+                    }
+                
+                }
+                catch (FormatException)
+                {
+                    if (attempts == 3)
+                    {
+                        Console.WriteLine("Invalid input. You have exceeded the maximum number of attempts.");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid input. Please enter a 4-digit number.");
+                    }
+                    attempts++;
+                }
+            }
+
         }
     }
-
 }
