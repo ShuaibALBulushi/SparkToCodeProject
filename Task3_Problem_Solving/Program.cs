@@ -143,6 +143,44 @@
             {
                 Console.WriteLine("The two names are different.");
             }
+
+            ///////////////////////////////////////////////////////////////////////////////
+
+
+
+            /*
+             
+             Task 8:
+             Ask the user to enter their membership start date as text (e.g. "2026-01-10") and the number of valid membership
+             days, then determine whether the membership is still active today.
+            
+            */
+            
+            try
+            {
+                Console.Write("\nEnter your membership start date (yyyy-MM-dd): ");
+                DateTime startDateInput = DateTime.Parse(Console.ReadLine());
+
+                Console.Write("Enter the number of valid membership days: ");
+                int validDays = int.Parse(Console.ReadLine());
+
+                DateTime endDateMembership = startDateInput.AddDays(validDays);
+                if(DateTime.Today <= endDateMembership)
+                {
+                    Console.WriteLine("Your membership is still active.");
+                }
+                else
+                {
+                    Console.WriteLine("Your membership has expired.");
+                }
+            
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid date format. Please enter the date in the format yyyy-MM-dd.");
+            }
+
+            
         }
     }
 
