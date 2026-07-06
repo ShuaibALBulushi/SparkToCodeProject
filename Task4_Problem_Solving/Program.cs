@@ -42,7 +42,7 @@
             //////////////////////////////////////////
 
 
-            //task 3:
+            //task 3 :
             Console.Write("Enter tempreture in celsius: ");
             double temp = double.Parse(Console.ReadLine());
             Console.WriteLine("Temprature in Fahrenheit: " + CelsiusToFahrenheit(temp));
