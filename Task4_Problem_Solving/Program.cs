@@ -91,6 +91,22 @@
             }
         }
 
+        //task 9 function:
+        public static int Multiply(int one, int two)
+        {
+            return one * two;
+        }
+
+        public static double Multiply(double one, double two)
+        {
+            return one * two;
+        }
+
+        public static int Multiply(int one, int two, int three)
+        {
+            return one * two * three;
+        }
+
         static void Main(string[] args)
         {
             // task 1:
@@ -164,6 +180,39 @@
             Console.Write("Enter the start number for countdown: ");
             int startNum = int.Parse(Console.ReadLine());
             Countdown(startNum);
+
+            /////////////////////////////////////////
+
+
+            //task 9:
+            Console.Write("Enter the first number: ");
+            int fnum = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            int snum = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("The product of the two integer numbers is: " + Multiply(fnum, snum));
+
+
+            Console.Write("Enter the first number: ");
+            double fnumber = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            double snumber = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("The product of the two double numbers is: " + Multiply(fnumber, snumber));
+
+
+            Console.Write("Enter the first number: ");
+            int numOne = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            int numTwo = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the third number: ");
+            int numThree = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("The product of the three integer numbers is: " + Multiply(numOne, numTwo, numThree));
         }
     }
 }
