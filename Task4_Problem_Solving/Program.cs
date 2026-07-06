@@ -33,6 +33,19 @@
             Console.WriteLine("3) Exit");
         }
 
+        //task 5 function:
+        public static bool isEven(int num)
+        {
+            if (num % 2 == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         static void Main(string[] args)
         {
             // task 1:
@@ -61,6 +74,14 @@
 
             //task 4:
             DisplayMenu();
+
+            /////////////////////////////////////////
+
+
+            //task 5:
+            Console.Write("Enter the number: ");
+            int num2 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Is the number even? " + isEven(num2));
         }
     }
 }
