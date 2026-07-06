@@ -107,6 +107,15 @@
             return one * two * three;
         }
 
+        //task 10 function:
+        public static double CalculateArea(double side)
+        {
+            //square area
+            return side * side;
+        }
+
+        //second function is in task 6, CalculateArea(double length, double width)
+
         static void Main(string[] args)
         {
             // task 1:
@@ -213,6 +222,40 @@
             int numThree = int.Parse(Console.ReadLine());
 
             Console.WriteLine("The product of the three integer numbers is: " + Multiply(numOne, numTwo, numThree));
+
+            /////////////////////////////////////////
+
+
+            //task 10:
+            Console.WriteLine("Which shape do you want to calculate the area for?");
+            Console.WriteLine("1) Square");
+            Console.WriteLine("2) Rectangle");
+            Console.Write("Enter choice (1 or 2): ");
+            string choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                Console.Write("Enter the side length of the square: ");
+                double side = double.Parse(Console.ReadLine());
+
+                double area = CalculateArea(side);
+                Console.WriteLine("The area of the square is: " + area);
+            }
+            else if (choice == "2")
+            {
+                Console.Write("Enter the length of the rectangle: ");
+                double length = double.Parse(Console.ReadLine());
+
+                Console.Write("Enter the width of the rectangle: ");
+                double width = double.Parse(Console.ReadLine());
+
+                double area = CalculateArea(length, width);
+                Console.WriteLine("The area of the rectangle is: " + area);
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
         }
     }
 }
