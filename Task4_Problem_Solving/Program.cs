@@ -81,7 +81,20 @@
             //task 5:
             Console.Write("Enter the number: ");
             int num2 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Is the number even? " + isEven(num2));
-        }
+            if(isEven(num2))
+            {
+                Console.WriteLine("The number is even.");
+            }
+            else
+            {
+                Console.WriteLine("The number is odd.");
+            }
+        
+
+        /////////////////////////////////////////
+
+
+        //task 6:
+    }
     }
 }
