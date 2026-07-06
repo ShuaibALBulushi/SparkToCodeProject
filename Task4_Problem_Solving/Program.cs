@@ -116,6 +116,42 @@
 
         //second function is in task 6, CalculateArea(double length, double width)
 
+
+        //task 11 function:
+
+        public static double Add(double a, double b)
+        {
+            return a + b;
+        }
+
+        public static double Subtract(double a, double b)
+        {
+            return a - b;
+        }
+
+        public static double MultiplyNumbers(double a, double b)
+        {
+            return a * b;
+        }
+
+        public static double DivideNumbers(double a, double b)
+        {
+            try
+            {
+                double res = a / b;
+                return res;
+            }
+            catch (DivideByZeroException)
+            {
+                return 0;
+            }
+        }
+
+        public static void DisplayResult(string operationName, double result)
+        {
+            Console.WriteLine("Result for " + operationName + ": " + result);
+        }
+
         static void Main(string[] args)
         {
             // task 1:
@@ -255,6 +291,78 @@
             else
             {
                 Console.WriteLine("Invalid choice.");
+            }
+
+            /////////////////////////////////////////
+
+
+            //task 11:
+            bool keepRunning = true;
+            while (keepRunning)
+            {
+                Console.WriteLine("\n--- Simple Calculator Menu ---");
+                Console.WriteLine("1) Add");
+                Console.WriteLine("2) Subtract");
+                Console.WriteLine("3) Multiply");
+                Console.WriteLine("4) Divide");
+                Console.WriteLine("5) Exit");
+                Console.Write("Choose an option (1-5): ");
+
+                string option = Console.ReadLine();
+
+                if (option == "5")
+                {
+                    keepRunning = false;
+                    Console.WriteLine("Exiting Calculator. Goodbye!");
+                    break;
+                }
+
+                if (option == "1" || option == "2" || option == "3" || option == "4")
+                {
+                    try
+                    {
+                        Console.Write("Enter first number: ");
+                        double number1 = double.Parse(Console.ReadLine());
+
+                        Console.Write("Enter second number: ");
+                        double number2 = double.Parse(Console.ReadLine());
+
+                        double result = 0;
+                        string opName = "";
+
+                        // FIXED: Changed 'choice' to 'option' so it matches your input variable
+                        switch (option)
+                        {
+                            case "1":
+                                result = Add(number1, number2);
+                                opName = "Addition";
+                                break;
+                            case "2":
+                                result = Subtract(number1, number2);
+                                opName = "Subtraction";
+                                break;
+                            case "3":
+                                result = MultiplyNumbers(number1, number2);
+                                opName = "Multiplication";
+                                break;
+                            case "4":
+                                result = DivideNumbers(number1, number2);
+                                opName = "Division";
+                                break;
+                        }
+
+                        // Call the required DisplayResult function
+                        DisplayResult(opName, result);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Invalid input. Please enter valid numeric values.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. Please select an option between 1 and 5.");
+                }
             }
         }
     }
