@@ -152,6 +152,45 @@
             Console.WriteLine("Result for " + operationName + ": " + result);
         }
 
+
+        //task 12 function:
+        public static double CalculateAverage(double score1, double score2, double score3)
+        {
+            return (score1 + score2 + score3) / 3.0;
+        }
+
+        public static string GetGradeLetter(double average)
+        {
+            if (average >= 90)
+            {
+                return "A";
+            }
+            else if (average >= 80)
+            {
+                return "B";
+            }
+            else if (average >= 70)
+            {
+                return "C";
+            }
+            else if (average >= 60)
+            {
+                return "D";
+            }
+            else
+            {
+                return "F";
+            }
+        }
+
+        public static void PrintReportCard(string name, double average, string gradeLetter)
+        {
+            Console.WriteLine("### REPORT CARD ###");
+            Console.WriteLine("Student Name: "+ name);
+            Console.WriteLine("Final Average: " + average);
+            Console.WriteLine("Letter Grade:  " + gradeLetter);
+        }
+
         static void Main(string[] args)
         {
             // task 1:
@@ -364,6 +403,29 @@
                     Console.WriteLine("Invalid choice. Please select an option between 1 and 5.");
                 }
             }
+
+            /////////////////////////////////////////////////////
+
+
+
+            //task 12:
+            Console.Write("Enter student's name: ");
+            string studentName = Console.ReadLine();
+
+            Console.Write("Enter score for Subject 1: ");
+            double s1 = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter score for Subject 2: ");
+            double s2 = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter score for Subject 3: ");
+            double s3 = double.Parse(Console.ReadLine());
+
+            double avg = CalculateAverage(s1, s2, s3);
+
+            string grade = GetGradeLetter(avg);
+
+            PrintReportCard(studentName, avg, grade);
         }
     }
 }
