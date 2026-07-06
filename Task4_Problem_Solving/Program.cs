@@ -24,6 +24,15 @@
             return res;
         }
 
+        //task 4 function:
+        public static void DisplayMenu()
+        {
+            Console.WriteLine("Menu options");
+            Console.WriteLine("1) Start");
+            Console.WriteLine("2) Help");
+            Console.WriteLine("3) Exit");
+        }
+
         static void Main(string[] args)
         {
             // task 1:
@@ -46,6 +55,12 @@
             Console.Write("Enter tempreture in celsius: ");
             double temp = double.Parse(Console.ReadLine());
             Console.WriteLine("Temprature in Fahrenheit: " + CelsiusToFahrenheit(temp));
+
+            //////////////////////////////////////////
+
+
+            //task 4:
+            DisplayMenu();
         }
     }
 }
