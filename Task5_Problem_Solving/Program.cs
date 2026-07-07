@@ -49,6 +49,45 @@
                 Console.WriteLine(taskNumber + ". " + task);
                 taskNumber++;
             }
+
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 3:
+             Create a Stack<string> to represent a browser's page history. Ask the user to enter 3 website URLs and Push each
+             one onto the stack. Then simulate pressing the "back" button once by popping the stack and printing which page
+             you land on.
+             */
+
+            Stack<string> browseHistory = new Stack<string>();
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter website URL " + (i + 1) + ": ");
+                string url = Console.ReadLine();
+                browseHistory.Push(url);
+            }
+
+            Console.WriteLine("\n### Simulating Browser Back Button ###");
+            Console.WriteLine("Current page: " + browseHistory.Peek());
+
+            Console.Write("Do you want to go back (y/n)? ");
+            string choice = Console.ReadLine();
+
+            if (choice.ToLower() == "y")
+            {
+                string removedPage = browseHistory.Pop();
+                string previousPage = browseHistory.Peek();
+
+                Console.WriteLine("You pressed the back button to leave " + removedPage);
+                Console.WriteLine("Now you are on: " + previousPage);
+            }
+            else
+            {
+                Console.WriteLine("You chose not to go back. You are still on: " + browseHistory.Peek());
+            }
         }
     }
     
