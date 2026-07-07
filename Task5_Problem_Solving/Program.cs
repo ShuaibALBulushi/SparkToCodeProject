@@ -169,6 +169,33 @@
             shoppingList.Remove(itemToRemove);
 
             Console.WriteLine("Shopping list after item removal: " + string.Join(", ", shoppingList));
+
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 7:
+             Ask the user to enter 5 game scores into a List<int>. Sort the list, then reverse it so the highest score comes first,
+             and print the top 3 scores as a podium (1st, 2nd, 3rd place).
+             */
+
+            List<int> gameScores = new List<int>();
+            
+            for(int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter game score " + (i + 1) + ": ");
+                gameScores.Add(int.Parse(Console.ReadLine()));
+            }
+            
+            gameScores.Sort();
+            gameScores.Reverse();
+            string[] suffixes = { "1st", "2nd", "3rd" };
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine(suffixes[i] + " place: " + gameScores[i]);
+            }
         }
     }
     
