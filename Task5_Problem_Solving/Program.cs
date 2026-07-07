@@ -134,6 +134,41 @@
 
             double avg = grades1.Average();
             Console.WriteLine("Average grade: " + avg);
+
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 6:
+             Create a List<string> for a shopping list. Use a while loop to let the user keep adding items until they type "done".
+             Then ask for one item name to remove, use .Remove to take it out, and print the final list.
+             */
+
+            List<string> shoppingList = new List<string>();
+            bool done = false;
+            while (!done)
+            {
+                Console.Write("Enter an item for shopping list (or type 'done' to finish): ");
+                string item = Console.ReadLine();
+                if(item.ToLower() != "done")
+                {
+                    shoppingList.Add(item);
+                }
+                else
+                {
+                    done = true;
+                }
+       
+            }
+            Console.WriteLine("\nShopping list before item removal: " + string.Join(", ", shoppingList));
+
+            Console.Write("\nEnter an item you want to remove: ");
+            string itemToRemove = Console.ReadLine();
+
+            shoppingList.Remove(itemToRemove);
+
+            Console.WriteLine("Shopping list after item removal: " + string.Join(", ", shoppingList));
         }
     }
     
