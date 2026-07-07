@@ -2,6 +2,17 @@
 {
     internal class Program
     {
+
+        public static double CalculateAverage(List<int> grades)
+        {
+            return grades.Average();
+        }
+
+        public static int FindFirstFailing(List<int> grades)
+        {
+            return grades.Find(x => x < 60);
+        }
+
         static void Main(string[] args)
         {
             /*
@@ -249,7 +260,43 @@
                 Console.WriteLine("- " + action);
             }
 
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 9:
+             Ask the user how many grades they want to enter, then read that many grades into a List<int>. Write a function
+             CalculateAverage that takes a List<int> as a parameter and returns the average as a double. Write a second
+             function FindFirstFailing that takes a List<int> as a parameter and returns the first grade below 60, using the same
+             Find-with-a-condition style shown in class (e.g. list.Find(x => x < 60)).
+             */
+
+            Console.WriteLine("Enter the number of grades you want: ");
+            int numGrades = int.Parse(Console.ReadLine());
+
+            List<int> gradesList = new List<int>();
+
+            for(int i = 0; i < numGrades; i++)
+            {
+                Console.Write("Enter grade " + (i + 1) + ": ");
+                gradesList.Add(int.Parse(Console.ReadLine()));
+            }
+            
+            Console.WriteLine("Average grade: " + CalculateAverage(gradesList));
+
+            bool hasFailing = gradesList.Any(x => x < 60);
+
+            if (hasFailing)
+            {
+                Console.WriteLine("First failing grade: " + FindFirstFailing(gradesList));
+            }
+            else
+            {
+                Console.WriteLine("No failing grades found.");
+            }
+        
         }
+
     }
-    
 }
