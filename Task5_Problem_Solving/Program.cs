@@ -13,6 +13,23 @@
             return grades.Find(x => x < 60);
         }
 
+        public static Queue<string> RemoveJob(Queue<string> queue, string jobName)
+        {
+            Queue<string> updatedQueue = new Queue<string>();
+            while (queue.Count > 0)
+            {
+                string currentJob = queue.Dequeue();
+
+                if (currentJob.ToLower() != jobName.ToLower())
+                {
+                    updatedQueue.Enqueue(currentJob);
+                }
+            }
+
+            return updatedQueue;
+
+        }
+
         static void Main(string[] args)
         {
             /*
@@ -295,7 +312,53 @@
             {
                 Console.WriteLine("No failing grades found.");
             }
-        
+
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 10:
+             Build a small print queue manager. Create a Queue<string> and use a while loop to let the user add print job names
+             until they type "done". Then ask for the name of one job to cancel. Since Queue<T> has no direct way to remove an
+             item by name, write a function called RemoveJob that takes the queue and the job name to remove as parameters,
+             and returns an updated Queue<string> with that job taken out.
+             */
+
+            Queue<string> printQueue = new Queue<string>();
+
+            bool hold = false;
+
+            while(!hold)
+            {
+                Console.Write("Enter a print job name (or type 'done' to finish): ");
+                string jobName = Console.ReadLine();
+                if (jobName.ToLower() != "done")
+                {
+                    printQueue.Enqueue(jobName);
+                }
+                else
+                {
+                    hold = true;
+                }
+            }
+
+            Console.WriteLine("\n### Print Queue Before Cancellation ###");
+            foreach (string job in printQueue)
+            {
+                Console.WriteLine("- " + job);
+            }
+
+            Console.Write("\nEnter the name of the job you want to cancel: ");
+            string jobToCancel = Console.ReadLine();
+
+            printQueue = RemoveJob(printQueue, jobToCancel);
+
+            Console.WriteLine("\n### Print Queue After Cancellation ###");
+            foreach (string job in printQueue)
+            {
+                Console.WriteLine("- " + job);
+            }
         }
 
     }
