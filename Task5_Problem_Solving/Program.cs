@@ -109,6 +109,31 @@
 
             string srevedCustomer = customers.Dequeue();
             Console.WriteLine("Serving customer: " + srevedCustomer);
+
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 5:
+             Ask the user to enter 5 grades into an int array using a loop. Sort the array with Array.Sort, then print the lowest
+             grade, the highest grade, and the average of all 5 grades.
+             */
+
+            int[] grades1 = new int[5];
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write("Enter the grade of student " + (i + 1) + ": ");
+                grades1[i] = int.Parse(Console.ReadLine());
+            }
+
+            Array.Sort(grades1);
+            Console.WriteLine("Lowest grade: " + grades1[0]);
+            Console.WriteLine("Highest grade: " + grades1[4]);
+
+            double avg = grades1.Average();
+            Console.WriteLine("Average grade: " + avg);
         }
     }
     
