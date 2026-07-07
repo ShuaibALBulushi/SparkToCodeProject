@@ -196,6 +196,59 @@
             {
                 Console.WriteLine(suffixes[i] + " place: " + gameScores[i]);
             }
+
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 8:
+             Create a Stack<string> to track actions in a simple editor. Use a while loop to let the user keep typing actions (e.g.
+             "typed a letter", "deleted a word") until they type "stop", pushing each one onto the stack. Afterward, simulate
+             pressing "undo" twice by popping twice and printing each undone action, then print whatever remains on the stack
+             using foreach
+             */
+
+            Stack<string> editorActions = new Stack<string>();
+
+            bool stop = false;
+
+            while (!stop)
+            {
+                Console.Write("Enter an action (or type 'stop' to finish): ");
+                string action = Console.ReadLine();
+                if (action.ToLower() != "stop")
+                {
+                    editorActions.Push(action);
+                }
+                else
+                {
+                    stop = true;
+                }
+            }
+
+            Console.WriteLine("\n### Simulating Undo Twice ###");
+
+            if (editorActions.Count >= 2)
+            {
+                string undoneAction1 = editorActions.Pop();
+                Console.WriteLine("Undone action: " + undoneAction1);
+
+                string undoneAction2 = editorActions.Pop();
+                Console.WriteLine("Undone action: " + undoneAction2);
+            }
+            else
+            {
+                Console.WriteLine("Not enough actions in history to undo twice");
+            }
+
+            Console.WriteLine("\nRemaining actions in editor history:");
+
+            foreach (string action in editorActions)
+            {
+                Console.WriteLine("- " + action);
+            }
+
         }
     }
     
