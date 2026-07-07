@@ -88,6 +88,27 @@
             {
                 Console.WriteLine("You chose not to go back. You are still on: " + browseHistory.Peek());
             }
+
+            //////////////////////////////////////////////////////
+
+
+
+            /*
+             Task 4:
+             Create a Queue<string> to represent customers waiting in line. Ask the user to enter 3 customer names and
+             Enqueue each one. Then serve the first customer by dequeuing and printing their name.
+             */
+
+            Queue<string> customers = new Queue<string>();
+
+            for(int i = 0; i < 3; i++)
+            {
+                Console.Write("Enter customer waiting in line " + (i + 1) + ": ");
+                customers.Enqueue(Console.ReadLine());
+            }
+
+            string srevedCustomer = customers.Dequeue();
+            Console.WriteLine("Serving customer: " + srevedCustomer);
         }
     }
     
