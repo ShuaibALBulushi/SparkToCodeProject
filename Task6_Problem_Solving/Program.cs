@@ -8,44 +8,7 @@
         static List<string> customerNames = new List<string>();
         static List<string> accountNumbers = new List<string>();
         static List<double> balances = new List<double>();
-
-        public static void AddAccount()
-        {
-            Console.Write("Enter your Name: ");
-            string customerName = Console.ReadLine();
-
-            Console.Write("Enter your Account Number: ");
-            string accountNumber = Console.ReadLine();
-
-            if(accountNumbers.Contains(accountNumber))
-            {
-                Console.WriteLine("Account number already exists. Please try again.");
-            }
-            else
-            {
-                Console.Write("Enter your Initial Balance: ");
-                double initialBalance = double.Parse(Console.ReadLine());
-
-                if(initialBalance < 0)
-                {
-                    Console.WriteLine("Initial balance cannot be negative. Please try again.");
-                }
-                else
-                {
-                    customerNames.Add(customerName);
-                    accountNumbers.Add(accountNumber);
-                    balances.Add(initialBalance);
-                    Console.WriteLine("Your account is successfully added");
-                    Console.WriteLine("### Account Details ###");
-                    Console.WriteLine("Name: " + customerName);
-                    Console.WriteLine("Account Number: " + accountNumber);
-                    Console.WriteLine("Balance: " + initialBalance);
-                }
-            }
-
-
-        }
-
+   
 
         static void Main(string[] args)
         {
@@ -113,6 +76,38 @@
         static void AddAccount()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your Name: ");
+            string customerName = Console.ReadLine();
+
+            Console.Write("Enter your Account Number: ");
+            string accountNumber = Console.ReadLine();
+
+            if (accountNumbers.Contains(accountNumber))
+            {
+                Console.WriteLine("Account number already exists. Please try again.");
+            }
+            else
+            {
+                Console.Write("Enter your Initial Balance: ");
+                double initialBalance = double.Parse(Console.ReadLine());
+
+                if (initialBalance < 0)
+                {
+                    Console.WriteLine("Initial balance cannot be negative. Please try again.");
+                }
+                else
+                {
+                    customerNames.Add(customerName);
+                    accountNumbers.Add(accountNumber);
+                    balances.Add(initialBalance);
+                    Console.WriteLine("Your account is successfully added");
+                    Console.WriteLine("### Account Details ###");
+                    Console.WriteLine("Name: " + customerName);
+                    Console.WriteLine("Account Number: " + accountNumber);
+                    Console.WriteLine("Balance: " + initialBalance);
+                }
+            }
+
         }
         static void DepositMoney()
         {
