@@ -10,7 +10,7 @@ namespace Task6_Problem_Solving
         static List<string> customerNames = new List<string>();
         static List<string> accountNumbers = new List<string>();
         static List<double> balances = new List<double>();
-   
+
 
         static void Main(string[] args)
         {
@@ -24,7 +24,7 @@ namespace Task6_Problem_Solving
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
                 Console.WriteLine("6. Find the Richest Custome");
-                Console.WriteLine("7. <your 2nd custom service - choose a name>");
+                Console.WriteLine("7. Search Accounts by Customer Name");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
                 int choice;
@@ -39,7 +39,7 @@ namespace Task6_Problem_Solving
                 }
                 switch (choice)
                 {
-                    case 1:               
+                    case 1:
                         AddAccount();
                         break;
                     case 2:
@@ -60,6 +60,7 @@ namespace Task6_Problem_Solving
                         break;
                     case 7:
                         // TODO: call your second custom service function here
+                        SearchAccount();
                         break;
                     case 8:
                         exitApp = true;
@@ -118,7 +119,7 @@ namespace Task6_Problem_Solving
             Console.Write("Enter your Account Number: ");
             string accountNumber = Console.ReadLine();
             int accountIndex = accountNumbers.IndexOf(accountNumber);
-            if(accountIndex >= 0)
+            if (accountIndex >= 0)
             {
                 Console.Write("Enter the amount to deposit: ");
                 double deposit = double.Parse(Console.ReadLine());
@@ -153,9 +154,9 @@ namespace Task6_Problem_Solving
                 Console.Write("Enter the amount to withdraw: ");
                 double withdraw = double.Parse(Console.ReadLine());
 
-                if(withdraw > 0)
+                if (withdraw > 0)
                 {
-                    if(withdraw <= balances[accountIndex])
+                    if (withdraw <= balances[accountIndex])
                     {
                         balances[accountIndex] -= withdraw;
                         Console.WriteLine("Withdrawal successful. \nNew balance: " + balances[accountIndex]);
@@ -206,13 +207,13 @@ namespace Task6_Problem_Solving
             int senderIndex = accountNumbers.IndexOf(accountNumber);
             int recipientIndex = accountNumbers.IndexOf(recipientAccountNumber);
 
-            if( senderIndex >= 0)
+            if (senderIndex >= 0)
             {
-                if (recipientIndex >= 0) 
-                { 
+                if (recipientIndex >= 0)
+                {
                     Console.Write("Enter the amount to transfer: ");
                     double transferAmount = double.Parse(Console.ReadLine());
-                    if(transferAmount > 0) 
+                    if (transferAmount > 0)
                     {
                         if (transferAmount <= balances[senderIndex])
                         {
@@ -230,7 +231,7 @@ namespace Task6_Problem_Solving
                     {
                         Console.WriteLine("Transfer amount cannot be negative. Please try again.");
                     }
-                    
+
                 }
                 else
                 {
@@ -246,7 +247,7 @@ namespace Task6_Problem_Solving
         // your own custom services (option 6 and option 7)
         static void RichestCustomer()
         {
-            if(balances.Count == 0)
+            if (balances.Count == 0)
             {
                 Console.WriteLine("No Account exists. Please add an account first.");
             }
@@ -260,5 +261,29 @@ namespace Task6_Problem_Solving
                 Console.WriteLine("Balance: " + balances[richestIndex]);
             }
         }
+
+        static void SearchAccount()
+        {
+            Console.Write("Enter the Customer Name to search: ");
+            string searchName = Console.ReadLine();
+            bool found = false;
+
+            for(int i = 0; i < customerNames.Count; i++) 
+            {
+                if (customerNames[i].ToLower() == searchName.ToLower())
+                {
+                    Console.WriteLine("\n### Account Details ###");
+                    Console.WriteLine("Name: " + customerNames[i]);
+                    Console.WriteLine("Account Number: " + accountNumbers[i]);
+                    Console.WriteLine("Balance: " + balances[i]);
+                    found = true;
+                }
+            }
+            if (!found)
+            {
+                Console.WriteLine("No accounts found for the customer name: " + searchName);
+            }
+        }
     }
 }
+
