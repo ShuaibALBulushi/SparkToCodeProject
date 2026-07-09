@@ -194,6 +194,50 @@
         static void TransferAmount()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your Account Number: ");
+            string accountNumber = Console.ReadLine();
+
+            Console.Write("Enter the recipient's Account Number: ");
+            string recipientAccountNumber = Console.ReadLine();
+
+            int senderIndex = accountNumbers.IndexOf(accountNumber);
+            int recipientIndex = accountNumbers.IndexOf(recipientAccountNumber);
+
+            if( senderIndex >= 0)
+            {
+                if (recipientIndex >= 0) 
+                { 
+                    Console.Write("Enter the amount to transfer: ");
+                    double transferAmount = double.Parse(Console.ReadLine());
+                    if(transferAmount > 0) 
+                    {
+                        if (transferAmount <= balances[senderIndex])
+                        {
+                            balances[senderIndex] -= transferAmount;
+                            balances[recipientIndex] += transferAmount;
+                            Console.WriteLine("Transfer successful. \nYour new balance: " + balances[senderIndex]);
+                            Console.WriteLine("Recipient's new balance: " + balances[recipientIndex]);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Insufficient balance. Please try again.");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transfer amount cannot be negative. Please try again.");
+                    }
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Recipient account number does not exist. Please try again.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Account number does not exist. Please try again.");
+            }
         }
         // TODO: write two more void, no-parameter functions here for
         // your own custom services (option 6 and option 7)
