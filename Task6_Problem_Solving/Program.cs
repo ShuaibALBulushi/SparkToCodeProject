@@ -176,6 +176,20 @@
         static void ShowBalance()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your Account Number: ");
+            string accountNumber = Console.ReadLine();
+            int accountIndex = accountNumbers.IndexOf(accountNumber);
+            if (accountIndex >= 0)
+            {
+                Console.WriteLine("### Account Details ###");
+                Console.WriteLine("Name: " + customerNames[accountIndex]);
+                Console.WriteLine("Account Number: " + accountNumbers[accountIndex]);
+                Console.WriteLine("Balance: " + balances[accountIndex]);
+            }
+            else
+            {
+                Console.WriteLine("Account number does not exist. Please try again.");
+            }
         }
         static void TransferAmount()
         {
