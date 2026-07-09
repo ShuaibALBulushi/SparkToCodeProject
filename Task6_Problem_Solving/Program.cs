@@ -112,10 +112,66 @@
         static void DepositMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your Account Number: ");
+            string accountNumber = Console.ReadLine();
+            int accountIndex = accountNumbers.IndexOf(accountNumber);
+            if(accountIndex >= 0)
+            {
+                Console.Write("Enter the amount to deposit: ");
+                double deposit = double.Parse(Console.ReadLine());
+                if (deposit < 0)
+                {
+                    Console.WriteLine("Deposit amount cannot be negative. Please try again.");
+                }
+                else
+                {
+                    balances[accountIndex] += deposit;
+                    Console.WriteLine("Deposit successful. New balance: " + balances[accountIndex]);
+                    Console.WriteLine("### Account Details ###");
+                    Console.WriteLine("Name: " + customerNames[accountIndex]);
+                    Console.WriteLine("Account Number: " + accountNumbers[accountIndex]);
+                    Console.WriteLine("Balance: " + balances[accountIndex]);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Account number does not exist. Please try again.");
+            }
+
         }
         static void WithdrawMoney()
         {
             // TODO: implement this service (see Section 3 requirements)
+            Console.Write("Enter your Account Number: ");
+            string accountNumber = Console.ReadLine();
+            int accountIndex = accountNumbers.IndexOf(accountNumber);
+            if (accountIndex >= 0)
+            {
+                Console.Write("Enter the amount to withdraw: ");
+                double withdraw = double.Parse(Console.ReadLine());
+
+                if(withdraw > 0)
+                {
+                    if(withdraw <= balances[accountIndex])
+                    {
+                        balances[accountIndex] -= withdraw;
+                        Console.WriteLine("Withdrawal successful. \nNew balance: " + balances[accountIndex]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Insufficient balance. Please try again.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Withdraw amount cannot be negative. Please try again.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Account number does not exist. Please try again.");
+            }
+
         }
         static void ShowBalance()
         {
