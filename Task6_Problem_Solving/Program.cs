@@ -1,4 +1,6 @@
-﻿namespace Task6_Problem_Solving
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Task6_Problem_Solving
 {
     internal class Program
     {
@@ -21,7 +23,7 @@
                 Console.WriteLine("3. Withdraw Money");
                 Console.WriteLine("4. Show Balance");
                 Console.WriteLine("5. Transfer Amount");
-                Console.WriteLine("6. <your 1st custom service - choose a name>");
+                Console.WriteLine("6. Find the Richest Custome");
                 Console.WriteLine("7. <your 2nd custom service - choose a name>");
                 Console.WriteLine("8. Exit");
                 Console.Write("Choose an option: ");
@@ -54,6 +56,7 @@
                         break;
                     case 6:
                         // TODO: call your first custom service function here
+                        RichestCustomer();
                         break;
                     case 7:
                         // TODO: call your second custom service function here
@@ -241,5 +244,21 @@
         }
         // TODO: write two more void, no-parameter functions here for
         // your own custom services (option 6 and option 7)
+        static void RichestCustomer()
+        {
+            if(balances.Count == 0)
+            {
+                Console.WriteLine("No Account exists. Please add an account first.");
+            }
+            else
+            {
+                double maxBalance = balances.Max();
+                int richestIndex = balances.IndexOf(maxBalance);
+                Console.WriteLine("### Richest Customer Details ###");
+                Console.WriteLine("Name: " + customerNames[richestIndex]);
+                Console.WriteLine("Account Number: " + accountNumbers[richestIndex]);
+                Console.WriteLine("Balance: " + balances[richestIndex]);
+            }
+        }
     }
 }
