@@ -222,6 +222,19 @@
             return S1;
         }
 
+        // method to chose between the objects of Product
+        static Product ChooseProduct()
+        {
+            Console.WriteLine("Choose the Product (1 or 2): ");
+            string choice = Console.ReadLine();
+            if (choice == "2")
+            {
+                return P2;
+            }
+            return P1;
+        }
+
+
         // Case 1
         static void ViewAccountDetails()
         {
@@ -247,6 +260,33 @@
             account.Deposit(amount);
             Console.WriteLine("Card holder's name: " + account.HolderName);
             Console.WriteLine("Updated Balance after the deposit: " + account.Balance);
+        }
+
+        // Case 4
+        static void MakeWithdrawal()
+        {
+            BankAccount account = ChooseAccount();
+            Console.WriteLine("Enter the amount that you want to deposit: ");
+            double amount = double.Parse(Console.ReadLine());
+            account.Withdraw(amount);
+            Console.WriteLine("Updated Balance after the Withdrawal: " + account.Balance);
+        }
+
+        // Case 5
+        static void ViewProductDetails()
+        {
+            Product product = ChooseProduct();
+            Console.WriteLine("Total Inventory Value: " + product.GetInventoryValue());
+        }
+
+        // Case 6
+        static void RegisterStudent()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter your Email: ");
+            string email = Console.ReadLine();
+            student.Register(email);
+            Console.WriteLine("you have registered successfully. your email will not be revealed anywhere");
         }
     }
 }
