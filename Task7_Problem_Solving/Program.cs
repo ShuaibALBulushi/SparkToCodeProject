@@ -44,7 +44,7 @@
     }
 
 
-    class student
+    class Student
     {
         public int Grade { get; set; }
         public string Name { get; set; }
@@ -118,8 +118,8 @@
         static BankAccount B2 = new BankAccount() { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
 
         //Student objects
-        static student S1 = new student() { Name = "Ali", Address = "Muscat", Grade = 65 };
-        static student S2 = new student() { Name = "Ahmed", Address = "Muscat", Grade = 70 };
+        static Student S1 = new Student() { Name = "Ali", Address = "Muscat", Grade = 65 };
+        static Student S2 = new Student() { Name = "Ahmed", Address = "Muscat", Grade = 70 };
 
         //Product objects
         static Product P1 = new Product() { ProductName = "Wireless Mouse", Price = 5.5, StockQuantity = 50 };
@@ -195,6 +195,58 @@
                             break;
                     }
                 }
+        }
+
+
+        // method to chose between the objects of BankAccount
+        static BankAccount ChooseAccount()
+        {
+            Console.WriteLine("Choose the Account (1 or 2): ");
+            string choice = Console.ReadLine();
+            if(choice == "2")
+            {
+                return B2;
+            }
+            return B1;
+        }
+
+        // method to chose between the objects of Student
+        static Student ChooseStudent()
+        {
+            Console.WriteLine("Choose the Student (1 or 2): ");
+            string choice = Console.ReadLine();
+            if (choice == "2")
+            {
+                return S2;
+            }
+            return S1;
+        }
+
+        // Case 1
+        static void ViewAccountDetails()
+        {
+            BankAccount account = ChooseAccount();
+            account.CheckBalance();
+        }
+
+        // Case 2
+        static void UpdateStudentAddress()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter new Address: ");
+            student.Address = Console.ReadLine();
+            Console.WriteLine("Address is successfully updated to " + student.Address);
+        }
+
+        // Case 3
+        static void MakeDeposit()
+        {
+            BankAccount account = ChooseAccount();
+            Console.WriteLine("Enter the amount that you want to deposit: ");
+            double amount = double.Parse(Console.ReadLine());
+            account.Deposit(amount);
+            Console.WriteLine("Card holder's name: " + account.HolderName);
+            Console.WriteLine("Updated Balance after the deposit: " + account.Balance);
         }
     }
 }
