@@ -1,4 +1,6 @@
-﻿namespace Task7_Problem_Solving
+﻿using System.Runtime.InteropServices;
+
+namespace Task7_Problem_Solving
 {
     class BankAccount
     {
@@ -287,6 +289,99 @@
             string email = Console.ReadLine();
             student.Register(email);
             Console.WriteLine("you have registered successfully. your email will not be revealed anywhere");
+        }
+
+        // Case 7
+        static void CompareAccountBalances()
+        {
+            double B1_balance = B1.Balance;
+            double B2_balance = B2.Balance;
+            if(B1_balance > B2_balance)
+            {
+                Console.WriteLine("Bank account 1 holds more money than Bank account 2");
+            }
+            else if (B2_balance > B1_balance)
+            {
+                Console.WriteLine("Bank account 2 holds more money than Bank account 1");
+            }
+            else
+            {
+                Console.WriteLine("Bank account 1 and 2 hold equal amount of money");
+            }
+        }
+
+        // Case 8
+        static void RestockProduct()
+        {
+            Product product = ChooseProduct();
+            Console.WriteLine("Enter the quantity of product you want to restock: ");
+            int quantity = int.Parse(Console.ReadLine());
+            product.Restock(quantity);
+
+            int stockQuantity = product.StockQuantity;
+            if(stockQuantity < 10 && stockQuantity >= 0)
+            {
+                Console.WriteLine("Stock level is low");
+            }
+            else if(stockQuantity >= 10 && stockQuantity <= 49)
+            {
+                Console.WriteLine("Stock level is moderate");
+            }
+            else
+            {
+                Console.WriteLine("Stock level is well stocked");
+            }
+        }
+
+        // Case 9
+        static void TransferBetweenAccounts()
+        {   
+            Console.WriteLine("### you will choose your source and destination account ###");
+
+            Console.WriteLine("Source =>");
+            BankAccount source = ChooseAccount();
+
+            Console.WriteLine("destination =>");
+            BankAccount destination = ChooseAccount();
+
+            Console.WriteLine("Enter the amount you want to transfer: ");
+            double amount = double.Parse(Console.ReadLine());
+
+            if (source.Balance >= amount)
+            {
+                source.Withdraw(amount);
+                destination.Deposit(amount);
+            }
+            else
+            {
+                Console.WriteLine("insufficient balance");
+            }
+        }
+
+        // Case 10
+        static void UpdateStudentGrade()
+        {
+            try
+            {
+                Student student = ChooseStudent();
+
+                Console.WriteLine("Enter the new Grade: ");
+                int grade = int.Parse(Console.ReadLine());
+
+                if(grade >= 0 && grade <= 100)
+                {
+                    student.Grade = grade;
+                }
+                else
+                {
+                    Console.WriteLine("the number you entered is out of the range of (0-100)");
+                }
+            }
+            catch(FormatException ex)
+            {
+                Console.WriteLine("input must be a whole number");
+            }
+           
         }
     }
 }
