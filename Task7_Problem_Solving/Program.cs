@@ -113,6 +113,18 @@
 
     public class Program
     {
+        //Bank Account objects
+        static BankAccount B1 = new BankAccount() {AccountNumber = 1163, HolderName = "Karim", Balance = 120 };
+        static BankAccount B2 = new BankAccount() { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
+
+        //Student objects
+        static student S1 = new student() { Name = "Ali", Address = "Muscat", Grade = 65 };
+        static student S2 = new student() { Name = "Ahmed", Address = "Muscat", Grade = 70 };
+
+        //Product objects
+        static Product P1 = new Product() { ProductName = "Wireless Mouse", Price = 5.5, StockQuantity = 50 };
+        static Product P2 = new Product() { ProductName = "Mechanical Keyboard", Price = 15.75, StockQuantity = 20 };
+
         static void Main(string[] args)
         {
             bool exitApp = false;
