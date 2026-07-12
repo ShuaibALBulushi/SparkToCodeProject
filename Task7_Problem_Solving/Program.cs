@@ -1,5 +1,115 @@
 ﻿namespace Task7_Problem_Solving
 {
+    class BankAccount
+    {
+        public int AccountNumber { get; set; }
+        public string HolderName { get; set; }
+        public double Balance { get; set; }
+
+        public void Deposit(double amount)
+        {
+            Balance += amount;
+            SendEmail();
+        }
+
+        public void Withdraw(double amount) 
+        { 
+            if(Balance >= amount)
+            {
+                Balance -= amount;
+                SendEmail();
+            }
+            else
+            {
+                Console.WriteLine("Insufficient funds for withdrawal.");
+            }
+        }
+
+        public double CheckBalance()
+        {
+            PrintInformation();
+            return Balance;
+        }
+
+        private void PrintInformation()
+        {
+            Console.WriteLine("Holder Name: " + HolderName);
+            Console.WriteLine("Balance: " + Balance);
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("Email sent to " + HolderName + " regarding account activity.");
+        }
+    }
+
+
+    class student
+    {
+        public int Grade { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        private string email;
+        int age;
+
+        public void Register(string Email)
+        {
+            email = Email;
+            SendEmail();
+        }
+
+        private void SendEmail()
+        {
+            Console.WriteLine("Email sent to " + email + " regarding registration.");
+        }
+    }
+
+    class Product
+    {
+        public string ProductName { get; set; }
+        public double Price { get; set; }
+        public int StockQuantity { get; set; }
+
+        public void Sell(int quantity)
+        {
+            if(StockQuantity >= quantity)
+            {
+                StockQuantity -= quantity;
+                LogTransaction();
+            }
+            else
+            {
+                Console.WriteLine("Insufficient stock for sale.");
+                LogTransaction();
+            }
+        }
+
+        public void Restock(int quantity)
+        {
+            StockQuantity += quantity;
+            Console.WriteLine(quantity + " units of " + ProductName + " restocked.");
+            LogTransaction();
+        }
+
+        public double GetInventoryValue()
+        {
+            PrintDetails();
+            return Price * StockQuantity;
+        }
+
+        private void PrintDetails()
+        {
+            Console.WriteLine("Product Name: " + ProductName);
+            Console.WriteLine("Price: " + Price);
+            Console.WriteLine("Stock Quantity: " + StockQuantity);
+        }
+
+        private void LogTransaction()
+        {
+            Console.WriteLine("Transaction logged for " + ProductName + ".");
+        }
+    }
+
 
     public class Program
     {
