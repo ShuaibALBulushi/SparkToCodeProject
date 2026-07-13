@@ -542,8 +542,8 @@ namespace Task7_Problem_Solving
 
             Console.WriteLine("### Newly added Bank Account Info ###");
             Console.WriteLine("Account Number: " + B3.AccountNumber);
-            Console.WriteLine("Holder Name: " + B3.AccountNumber);
-            Console.WriteLine("Balance: " + B3.AccountNumber);
+            Console.WriteLine("Holder Name: " + B3.HolderName);
+            Console.WriteLine("Balance: " + B3.Balance);
         }
 
         // Case 17
