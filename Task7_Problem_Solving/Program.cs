@@ -8,6 +8,13 @@ namespace Task7_Problem_Solving
         public string HolderName { get; set; }
         public double Balance { get; set; }
 
+        public BankAccount(int accountNumber, string holderName, double balance)
+        {
+            AccountNumber = accountNumber;
+            HolderName = holderName;
+            Balance = balance;
+        }
+
         public void Deposit(double amount)
         {
             Balance += amount;
@@ -116,8 +123,8 @@ namespace Task7_Problem_Solving
     public class Program
     {
         //Bank Account objects
-        static BankAccount B1 = new BankAccount() {AccountNumber = 1163, HolderName = "Karim", Balance = 120 };
-        static BankAccount B2 = new BankAccount() { AccountNumber = 15203, HolderName = "Ali", Balance = 63 };
+        static BankAccount B1 = new BankAccount(1163, "Karim", 120);
+        static BankAccount B2 = new BankAccount(15203, "Ali", 63);
 
         //Student objects
         static Student S1 = new Student() { Name = "Ali", Address = "Muscat", Grade = 65 };
@@ -480,6 +487,26 @@ namespace Task7_Problem_Solving
                 account.Deposit(neededBalance);
                 Console.WriteLine("Balance after deposit: " + account.Balance);
             }
+        }
+
+        // Case 16
+        static void QuickAccountOpening()
+        {
+            Console.Write("Enter Account Number: ");
+            int accountNum = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Holder Name: ");
+            string holderName = Console.ReadLine();
+
+            Console.Write("Enter Starting Balance: ");
+            double balance = double.Parse(Console.ReadLine());
+
+            BankAccount B3 = new BankAccount(accountNum, holderName, balance);
+
+            Console.WriteLine("### Newly added Bank Account Info ###");
+            Console.WriteLine("Account Number: " + B3.AccountNumber);
+            Console.WriteLine("Holder Name: " + B3.AccountNumber);
+            Console.WriteLine("Balance: " + B3.AccountNumber);
         }
     }
 }
