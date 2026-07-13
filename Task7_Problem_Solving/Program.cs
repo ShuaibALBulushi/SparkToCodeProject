@@ -64,6 +64,24 @@ namespace Task7_Problem_Solving
         int age;
         private static int studentCount = 0;
 
+        private string _pin;
+        
+        public string pin
+        {
+            set
+            {
+                if(value.Length == 4)
+                {
+                    _pin = value;
+                    Console.WriteLine("System: security parameters updated internally.");
+                }
+                else
+                {
+                    Console.WriteLine("PIN must be exactly 4 digits.");
+                }
+            }
+        }
+
         public Student()
         {
             studentCount++;
@@ -214,6 +232,12 @@ namespace Task7_Problem_Solving
                         default:
                             Console.WriteLine("Invalid option, please choose between 1 and 20.");
                             break;
+                    }
+                    if (!exitApp)
+                    {
+                        Console.WriteLine("\nPress Enter to return to the menu...");
+                        Console.ReadLine(); 
+                        Console.Clear();    
                     }
                 }
         }
@@ -543,6 +567,17 @@ namespace Task7_Problem_Solving
             {
                 Console.WriteLine("Status: Account is in good standing.");
             }
+        }
+
+        // Case 19
+        static void SetStudentSecurityPin()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("Enter your security PIN: ");
+            string PIN = Console.ReadLine();
+
+            student.pin = PIN;
+            Console.WriteLine("The PIN for " + student.Name + " has been securely updated.");
         }
     }
 }
