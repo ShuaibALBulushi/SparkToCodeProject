@@ -164,6 +164,10 @@ namespace Task7_Problem_Solving
         static Product P1 = new Product() { ProductName = "Wireless Mouse", Price = 5.5, StockQuantity = 50 };
         static Product P2 = new Product() { ProductName = "Mechanical Keyboard", Price = 15.75, StockQuantity = 20 };
 
+        static Program() {
+
+        }
+
         static void Main(string[] args)
         {
             bool exitApp = false;
@@ -578,7 +582,7 @@ namespace Task7_Problem_Solving
             string PIN = Console.ReadLine();
 
             student.pin = PIN;
-            Console.WriteLine("The PIN for " + student.Name + " has been securely updated.");
+            // Console.WriteLine("The PIN for " + student.Name + " has been securely updated.");
         }
     }
 }
