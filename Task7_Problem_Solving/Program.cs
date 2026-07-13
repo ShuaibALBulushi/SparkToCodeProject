@@ -442,5 +442,27 @@ namespace Task7_Problem_Solving
                 Console.WriteLine(Math.Abs(product.StockQuantity - quantity) + " additional units would be needed to fulfill the order");
             }
         }
+
+        // Case 14
+        static void ScholarshipEligibilityCheck()
+        {
+            Student student = ChooseStudent();
+            BankAccount account = ChooseAccount();
+            if(student.Grade >= 80)
+            {
+                if(account.Balance >= 100)
+                {
+                    Console.WriteLine("Eligible for shcolarship");
+                }
+                else
+                {
+                    Console.WriteLine("Not Eligible for shcolarship because account balance is not 100 or above");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Not Eligible for shcolarship because student grade is not 80 or above");
+            }
+        }
     }
 }
