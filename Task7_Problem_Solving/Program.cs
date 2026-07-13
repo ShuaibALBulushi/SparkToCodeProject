@@ -464,5 +464,22 @@ namespace Task7_Problem_Solving
                 Console.WriteLine("Not Eligible for shcolarship because student grade is not 80 or above");
             }
         }
+
+        // Case 15
+        static void FullBalanceTopUpFlow()
+        {
+            BankAccount account = ChooseAccount();
+            if(account.Balance >= 50)
+            {
+                Console.WriteLine("no top-up is needed");
+            }
+            else
+            {
+                Console.WriteLine("Balance before deposit the needed amount to reach 100: " + account.Balance);
+                double neededBalance = Math.Abs(100 - account.Balance);
+                account.Deposit(neededBalance);
+                Console.WriteLine("Balance after deposit: " + account.Balance);
+            }
+        }
     }
 }
