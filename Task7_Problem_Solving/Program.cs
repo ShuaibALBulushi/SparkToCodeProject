@@ -60,7 +60,17 @@ namespace Task7_Problem_Solving
         public string Address { get; set; }
         private string email;
         int age;
+        private static int studentCount = 0;
 
+        public Student()
+        {
+            studentCount++;
+        }
+
+        public static int CountStudentObjects()
+        {
+            return studentCount;
+        }
         public void Register(string Email)
         {
             email = Email;
@@ -507,6 +517,12 @@ namespace Task7_Problem_Solving
             Console.WriteLine("Account Number: " + B3.AccountNumber);
             Console.WriteLine("Holder Name: " + B3.AccountNumber);
             Console.WriteLine("Balance: " + B3.AccountNumber);
+        }
+
+        // Case 17
+        static void TotalStudentsCounter()
+        {
+            Console.WriteLine("Number of student objects created  = " + Student.CountStudentObjects());
         }
     }
 }
