@@ -424,5 +424,23 @@ namespace Task7_Problem_Solving
                 Console.WriteLine("Bank account has a Premium Balance");
             }
         }
+
+        // Case 13
+        static void BulkSaleWithRevenue()
+        {
+            Product product = ChooseProduct();
+            Console.WriteLine("Enter the quantity to sell: ");
+            int quantity = int.Parse(Console.ReadLine());
+            if(product.StockQuantity >= quantity)
+            {
+                product.Sell(quantity);
+                double revenue = quantity * product.Price;
+                Console.WriteLine("Total Revenue = " + revenue);
+            }
+            else
+            {
+                Console.WriteLine(Math.Abs(product.StockQuantity - quantity) + " additional units would be needed to fulfill the order");
+            }
+        }
     }
 }
