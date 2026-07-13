@@ -311,7 +311,7 @@ namespace Task7_Problem_Solving
         static void MakeWithdrawal()
         {
             BankAccount account = ChooseAccount();
-            Console.WriteLine("Enter the amount that you want to deposit: ");
+            Console.WriteLine("Enter the amount that you want to withdraw: ");
             double amount = double.Parse(Console.ReadLine());
             account.Withdraw(amount);
             Console.WriteLine("Updated Balance after the Withdrawal: " + account.Balance);
