@@ -414,6 +414,7 @@ namespace Task7_Problem_Solving
                 if(grade >= 0 && grade <= 100)
                 {
                     student.Grade = grade;
+                    Console.WriteLine("Grade successfully updated");
                 }
                 else
                 {
