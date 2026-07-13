@@ -8,6 +8,8 @@ namespace Task7_Problem_Solving
         public string HolderName { get; set; }
         public double Balance { get; set; }
 
+        public bool isOverdrawn => Balance < 0;
+
         public BankAccount(int accountNumber, string holderName, double balance)
         {
             AccountNumber = accountNumber;
@@ -523,6 +525,24 @@ namespace Task7_Problem_Solving
         static void TotalStudentsCounter()
         {
             Console.WriteLine("Number of student objects created  = " + Student.CountStudentObjects());
+        }
+
+        // Case 18
+        static void OverdrawnAccountCheck()
+        {
+            BankAccount account = ChooseAccount();
+            Console.WriteLine("### Account Status ###");
+            Console.WriteLine("Holder Name: " + account.HolderName);
+            Console.WriteLine("Balance: " + account.Balance);
+
+            if (account.isOverdrawn)
+            {
+                Console.WriteLine("Warning: This account is CURRENTLY OVERDRAWN!");
+            }
+            else
+            {
+                Console.WriteLine("Status: Account is in good standing.");
+            }
         }
     }
 }
