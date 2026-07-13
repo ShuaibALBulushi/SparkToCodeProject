@@ -383,5 +383,46 @@ namespace Task7_Problem_Solving
             }
            
         }
+
+        // Case 11
+        static void StudentReportCard()
+        {
+            Student student = ChooseStudent();
+            Console.WriteLine("### Student Information ###");
+            Console.WriteLine("Student Name: " + student.Name);
+            Console.WriteLine("Student Address: " + student.Address);
+            Console.WriteLine("Student Grade: " + student.Grade);
+
+            if(student.Grade >= 60 && student.Grade <= 100)
+            {
+                Console.WriteLine("Student " + student.Name + " Passed");
+            }
+            else if(student.Grade < 60 && student.Grade >= 0)
+            {
+                Console.WriteLine("Student " + student.Name + " Failed");
+            }
+            else
+            {
+                Console.WriteLine("Invalid Grade");
+            }
+        }
+
+        // Case 12
+        static void AccountHealthStatus()
+        {
+            BankAccount account = ChooseAccount();
+            if(account.Balance < 50)
+            {
+                Console.WriteLine("Bank account has a Low Balance");
+            }
+            else if(account.Balance >= 50 && account.Balance <= 1000)
+            {
+                Console.WriteLine("Bank account has a Healthy Balance");
+            }
+            else
+            {
+                Console.WriteLine("Bank account has a Premium Balance");
+            }
+        }
     }
 }
