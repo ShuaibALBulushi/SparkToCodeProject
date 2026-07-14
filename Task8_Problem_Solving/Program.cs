@@ -312,6 +312,37 @@
 
             }
 
+            // Case 5
+            void ViewAllGuests()
+            {
+                var sortedGuests = guests.OrderBy(g => g.guestName);
+
+                Console.WriteLine("Total Number of Guests: " + sortedGuests.Count());
+
+                if(sortedGuests.Count() == 0)
+                {
+                    Console.WriteLine("No guests have been registered yet.");
+                }
+                else
+                {
+                    foreach(Guest guest in sortedGuests)
+                    {
+                        Console.WriteLine($"Guest ID: {guest.guestID}");
+                        Console.WriteLine($"Guest Name: {guest.guestName}");
+                        if(guest.roomNumber == 0)
+                        {
+                            Console.WriteLine("Room number: Not Assigned");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Room Number: {guest.roomNumber}");
+                        }
+                        Console.WriteLine($"Check-In date: {guest.checkInDate}");
+                        Console.WriteLine($"Total Nights: {guest.totalNights}");
+                    }
+                }
+            }
+
         }
 
     }
