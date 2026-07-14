@@ -231,6 +231,56 @@
                 
             }
 
+            // Case 3
+            void BookRoomForGuest()
+            {
+                Console.WriteLine("Enter Guest ID: ");
+                string guestId = Console.ReadLine();
+
+                Console.WriteLine("Enter the room number: ");
+                int rooNum = int.Parse(Console.ReadLine());
+
+                Guest foundGuest = guests.FirstOrDefault(g => g.guestID == guestId);
+                Room foundRoom = rooms.FirstOrDefault(r => r.roomNumber == rooNum);
+
+                if(foundGuest != null)
+                {
+                    if(foundRoom != null)
+                    {
+                        if (foundRoom.isAvailable)
+                        {
+                            foundGuest.roomNumber = foundRoom.roomNumber;
+                            foundRoom.isAvailable = false;
+
+                            Console.WriteLine("### room is booked successfuly ###");
+                            Console.WriteLine("Guest Name: " + foundGuest.guestName);
+                            Console.WriteLine("Room Number: " + foundGuest.roomNumber);
+                            Console.WriteLine("Room Type: " + foundRoom.roomType);
+                            Console.WriteLine("Price Per Night: " + foundRoom.pricePerNight);
+                            Console.WriteLine("Total Nights: " + foundGuest.totalNights);
+                            Console.WriteLine("Total Cost: " + foundGuest.CalculateTotalCost(foundRoom.pricePerNight));
+                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Room is already booked");
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: Room is Not Found");
+                        return;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: Guest is Not Found");
+                    return;
+                }
+
+            }
+
         }
 
     }
