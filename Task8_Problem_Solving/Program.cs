@@ -148,7 +148,6 @@
                         break;
                 }
 
-                // Pause and clear the console after each completed option
                 if (!exitApp)
                 {
                     Console.WriteLine("\nPress Enter to return to the menu...");
