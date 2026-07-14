@@ -462,6 +462,59 @@
                 }
             }
 
+            // Case 7
+            void GuestAndBookingStatistics()
+            {
+                Console.WriteLine("### Guest and Booking Statistics ###");
+                Console.WriteLine($"Number of registered guests: {guests.Count}");
+
+                var guestsAssigned = guests.Where(g => g.roomNumber != 0);
+                Console.WriteLine($"Number of registered guests with assigned rooms: {guestsAssigned.Count()}");
+
+                var guestsNotAssigned = guests.Where(g => g.roomNumber == 0);
+                Console.WriteLine($"Number of registered guests with no assigned rooms: {guestsNotAssigned.Count()}");
+
+                Console.WriteLine($"Number of Rooms: {rooms.Count}");
+
+                var bookedRooms = rooms.Where(r => r.isAvailable == false);
+                Console.WriteLine($"Number of booked Rooms: {bookedRooms.Count()}");
+
+                if (!guests.Any(g => g.roomNumber != 0))
+                {
+                    Console.WriteLine("No active bookings recorded.");
+                }
+                else
+                {
+                    var AvgGuestsAssigned = guests.Where(g => g.roomNumber != 0).Average(g => g.totalNights);
+                    Console.WriteLine($"Average number of nights across all guests who have an active booking: {AvgGuestsAssigned.ToString("F2")}");
+
+                    var topGuests = guests
+                        .Where(g => g.roomNumber != 0)
+                        .OrderByDescending(g => g.CalculateTotalCost(rooms.FirstOrDefault(r => r.roomNumber == g.roomNumber).pricePerNight))
+                        .Take(3);
+
+                    foreach (var guest in topGuests)
+                    {
+                        double roomPrice = rooms.FirstOrDefault(r => r.roomNumber == guest.roomNumber).pricePerNight;
+                        double totalCost = guest.CalculateTotalCost(roomPrice);
+                        Console.WriteLine($"Guest Name: {guest.guestName}, Room Number: {guest.roomNumber}, Total Cost: OMR {totalCost.ToString("F2")}");
+                    }
+
+                    var summaries = guests
+                        .Where(g => g.roomNumber != 0)
+                        .Select(g => {
+                            double roomPrice = rooms.FirstOrDefault(r => r.roomNumber == g.roomNumber).pricePerNight;
+                            double totalCost = g.CalculateTotalCost(roomPrice);
+                            return $"{g.guestName} — Room {g.roomNumber} — {g.totalNights} nights — OMR {totalCost.ToString("F2")}";
+                        });
+
+                    foreach (var summary in summaries)
+                    {
+                        Console.WriteLine(summary);
+                    }
+                }
+            }
+
         }
 
     }
