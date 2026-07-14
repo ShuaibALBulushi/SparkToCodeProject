@@ -343,6 +343,125 @@
                 }
             }
 
+            // Case 6
+            void SearchAndFilterRooms()
+            {
+                bool exitSub = false;
+                while (!exitSub)
+                {
+                    Console.WriteLine("### Sub Menu ###");
+                    Console.WriteLine(" 1. Show all available rooms");
+                    Console.WriteLine(" 2. Filter by room type");
+                    Console.WriteLine(" 3. Filter by max price");
+                    Console.WriteLine(" 4. Room price statistics");
+                    Console.WriteLine(" 0. Back");
+                    Console.WriteLine("=========================================");
+                    Console.Write("Enter your choice: ");
+                    string choice = Console.ReadLine();
+
+                    switch (choice)
+                    {
+                        case "1":
+                            var AllRooms = rooms.Where(r => r.isAvailable == true).OrderBy(r => r.pricePerNight);
+
+                            if (AllRooms.Count() == 0)
+                            {
+                                Console.WriteLine("No rooms found for the selected criteria.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Number of Available rooms " + AllRooms.Count());
+                                foreach (var room in AllRooms)
+                                {
+                                    Console.WriteLine("Room Number: " + room.roomNumber);
+                                    Console.WriteLine("Room Type: " + room.roomType);
+                                    Console.WriteLine("Price Per Night: " + room.pricePerNight.ToString("F2"));
+                                    Console.WriteLine("Room Available");
+                                }
+                            }
+                            break;
+
+                        case "2":
+                            Console.WriteLine("Enter the room type (Single / Double / Suite): ");
+                            string roomtype = Console.ReadLine();
+
+                            var FilterByType = rooms.Where(r => r.roomType.ToLower() == roomtype.ToLower());
+
+                            if (FilterByType.Count() == 0)
+                            {
+                                Console.WriteLine("No rooms found for the selected criteria.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Number of Matching rooms " + FilterByType.Count());
+                                foreach (var room in FilterByType)
+                                {
+                                    Console.WriteLine("Room Number: " + room.roomNumber);
+                                    Console.WriteLine("Room Type: " + room.roomType);
+                                    Console.WriteLine("Price Per Night: " + room.pricePerNight.ToString("F2"));
+                                    if (room.isAvailable)
+                                    {
+                                        Console.WriteLine("Room Available");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Room Booked");
+                                    }
+                                }
+                            }
+                            break;
+
+                        case "3":
+                            Console.WriteLine("Enter the maximum price: ");
+                            double maxPrice = double.Parse(Console.ReadLine());
+
+                            var FilterbyPrice = rooms.Where(r => r.isAvailable == true && r.pricePerNight <= maxPrice).OrderBy(r => r.pricePerNight);
+
+                            if (FilterbyPrice.Count() == 0)
+                            {
+                                Console.WriteLine("No rooms found for the selected criteria.");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Number of Available rooms " + FilterbyPrice.Count());
+                                foreach (var room in FilterbyPrice)
+                                {
+                                    Console.WriteLine("Room Number: " + room.roomNumber);
+                                    Console.WriteLine("Room Type: " + room.roomType);
+                                    Console.WriteLine("Price Per Night: " + room.pricePerNight.ToString("F2"));
+                                    Console.WriteLine("Room Available");
+                                }
+                            }
+                            break;
+
+                        case "4":
+                            if (rooms.Count() == 0)
+                            {
+                                Console.WriteLine("No rooms found for the selected criteria.");
+                            }
+                            else
+                            {
+                                int totalRooms = rooms.Count();
+                                int availableRooms = rooms.Count(r => r.isAvailable == true);
+                                double avgPrice = rooms.Average(r => r.pricePerNight);
+                                double minPrice = rooms.Min(r => r.pricePerNight);
+                                double maxPriceStat = rooms.Max(r => r.pricePerNight);
+
+                                Console.WriteLine("Total Rooms: " + totalRooms);
+                                Console.WriteLine("Available Rooms: " + availableRooms);
+                                Console.WriteLine("Average Price: " + avgPrice.ToString("F2"));
+                                Console.WriteLine("Cheapest Price: " + minPrice.ToString("F2"));
+                                Console.WriteLine("Most Expensive Price: " + maxPriceStat.ToString("F2"));
+                            }
+                            break;
+
+                        case "0":
+                            exitSub = true;
+                            break;
+                    }
+                }
+            }
+
         }
 
     }
