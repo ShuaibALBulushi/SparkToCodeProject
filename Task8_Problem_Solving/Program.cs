@@ -35,13 +35,13 @@
 
     class Guest
     {
-        public int guestID { get; set; }
+        public string guestID { get; set; }
         public string guestName { get; set; }
         public int roomNumber { get; set; }
         public string checkInDate { get; set; }
         public int totalNights { get; set; }
 
-        public Guest (int guestID, string guestName, int roomNumber, string checkInDate, int totalNights)
+        public Guest (string guestID, string guestName, int roomNumber, string checkInDate, int totalNights)
         {
             this.guestID = guestID;
             this.guestName = guestName;
@@ -195,6 +195,40 @@
                     Console.WriteLine("both room number and price per night must be positive");
                 }
                
+            }
+
+            // Case 2
+            void RegisterNewGuest()
+            {
+                Console.WriteLine("### Register New Guest ###");
+
+                Console.WriteLine("Enter guest name: ");
+                string gname = Console.ReadLine();
+
+                Console.WriteLine("Enter check-in date: ");
+                string checkIN = Console.ReadLine();
+
+                Console.WriteLine("Enter number of nights: ");
+                int nightNum = int.Parse(Console.ReadLine());
+
+                int nextIdNumber = guests.Count + 1;
+                string guestId = "G" + nextIdNumber.ToString("D3");
+                if (nightNum > 0)
+                {
+                    Guest newGuest = new Guest(guestId, gname, 0, checkIN, nightNum);
+                    guests.Add(newGuest);
+
+                    Console.WriteLine("New guest added successfully");
+                    Console.WriteLine("Guest ID: " + newGuest.guestID);
+                    Console.WriteLine("Guest Name: " + newGuest.guestName);
+                    Console.WriteLine("Room Number: Not Assinged");
+                    Console.WriteLine("Total Nights: " + newGuest.totalNights);
+                }
+                else
+                {
+                    Console.WriteLine("Error: number of nights must be positive");
+                }
+                
             }
 
         }
