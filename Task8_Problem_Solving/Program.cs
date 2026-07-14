@@ -281,6 +281,37 @@
 
             }
 
+            // Case 4
+            void ViewAllRooms()
+            {
+                var sortedRooms = rooms.OrderBy(r => r.roomNumber);
+
+                Console.WriteLine("Total Rooms: " + sortedRooms.Count());
+
+                if(sortedRooms.Count() == 0)
+                {
+                    Console.WriteLine("No rooms have been added yet");
+                }
+                else
+                {
+                    foreach (Room room in sortedRooms)
+                    {
+                        Console.WriteLine("Room Number: " + room.roomNumber);
+                        Console.WriteLine("Room Type: " + room.roomType);
+                        Console.WriteLine("Price Per Night: " + room.pricePerNight);
+                        if (room.isAvailable)
+                        {
+                            Console.WriteLine("Available");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Booked");
+                        }
+                    }
+                }
+
+            }
+
         }
 
     }
