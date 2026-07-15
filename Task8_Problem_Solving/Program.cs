@@ -570,6 +570,46 @@
                 }
             }
 
+            // Case 10
+            void RoomTypeBreakdownReport()
+            {
+                var singleRoom = rooms.Where(r => r.roomType.Contains("Single"));
+                var doubleRoom = rooms.Where(r => r.roomType.Contains("Double"));
+                var suiteRoom = rooms.Where(r => r.roomType.Contains("Suite"));
+
+                if (singleRoom.Count() != 0)
+                {
+                    Console.WriteLine($"{singleRoom.Count()} Single type of rooms available");
+                    Console.WriteLine($"Average price per night for Single type of rooms = {Math.Round(singleRoom.Average(r => r.pricePerNight), 2)} OMR");
+                }
+                else
+                {
+                    Console.WriteLine("'N/A' Single type of rooms");
+                }
+
+                if (doubleRoom.Count() != 0)
+                {
+                    Console.WriteLine($"{doubleRoom.Count()} Double type of rooms available");
+                    Console.WriteLine($"Average price per night for Double type of rooms = {Math.Round(doubleRoom.Average(r => r.pricePerNight),2)} OMR");
+                }
+                else
+                {
+                    Console.WriteLine("'N/A' double type of rooms");
+                }
+
+                if (suiteRoom.Count() != 0)
+                {
+                    Console.WriteLine($"{suiteRoom.Count()} Suite type of rooms available");
+                    Console.WriteLine($"Average price per night for Suite type of rooms = {Math.Round(suiteRoom.Average(r => r.pricePerNight), 2)} OMR");
+                }
+                else
+                {
+                    Console.WriteLine("'N/A' Suite type of rooms");
+                }
+
+                Console.WriteLine($"overall average price across all rooms = {Math.Round(rooms.Average(r => r.pricePerNight),2)}");
+            }
+
         }
 
     }
