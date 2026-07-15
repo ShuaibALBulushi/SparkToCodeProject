@@ -796,7 +796,7 @@ namespace Task8_Problem_Solving
             }
 
             // Case 15
-            void ViewGuestsByPage()
+            void GuestPaginationViewer()
             {
                 int totalPages = (guests.Count + 2) / 3;
 
