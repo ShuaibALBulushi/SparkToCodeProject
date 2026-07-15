@@ -377,10 +377,11 @@ namespace Task8_Problem_Solving
                                 Console.WriteLine("Number of Available rooms " + AllRooms.Count());
                                 foreach (var room in AllRooms)
                                 {
+                                    Console.WriteLine("### Room Info ###");
                                     Console.WriteLine("Room Number: " + room.roomNumber);
                                     Console.WriteLine("Room Type: " + room.roomType);
                                     Console.WriteLine("Price Per Night: " + room.pricePerNight.ToString("F2"));
-                                    Console.WriteLine("Room Available");
+                                    Console.WriteLine("Room Available\n");
                                 }
                             }
                             break;
@@ -400,16 +401,17 @@ namespace Task8_Problem_Solving
                                 Console.WriteLine("Number of Matching rooms " + FilterByType.Count());
                                 foreach (var room in FilterByType)
                                 {
+                                    Console.WriteLine("### Room Info ###");
                                     Console.WriteLine("Room Number: " + room.roomNumber);
                                     Console.WriteLine("Room Type: " + room.roomType);
                                     Console.WriteLine("Price Per Night: " + room.pricePerNight.ToString("F2"));
                                     if (room.isAvailable)
                                     {
-                                        Console.WriteLine("Room Available");
+                                        Console.WriteLine("Room Available\n");
                                     }
                                     else
                                     {
-                                        Console.WriteLine("Room Booked");
+                                        Console.WriteLine("Room Booked\n");
                                     }
                                 }
                             }
@@ -430,10 +432,11 @@ namespace Task8_Problem_Solving
                                 Console.WriteLine("Number of Available rooms " + FilterbyPrice.Count());
                                 foreach (var room in FilterbyPrice)
                                 {
+                                    Console.WriteLine("### Room Info ###");
                                     Console.WriteLine("Room Number: " + room.roomNumber);
                                     Console.WriteLine("Room Type: " + room.roomType);
                                     Console.WriteLine("Price Per Night: " + room.pricePerNight.ToString("F2"));
-                                    Console.WriteLine("Room Available");
+                                    Console.WriteLine("Room Available\n");
                                 }
                             }
                             break;
