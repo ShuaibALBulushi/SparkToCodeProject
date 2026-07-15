@@ -794,6 +794,35 @@ namespace Task8_Problem_Solving
                     return;
                 }
             }
+
+            // Case 15
+            void ViewGuestsByPage()
+            {
+                int totalPages = (guests.Count + 2) / 3;
+
+                if (totalPages == 0)
+                {
+                    Console.WriteLine("No guests are currently registered.");
+                    return;
+                }
+
+                Console.WriteLine($"Enter page number (1 to {totalPages}):");
+                int page = int.Parse(Console.ReadLine());
+
+                if (page < 1 || page > totalPages)
+                {
+                    Console.WriteLine("That page does not exist.");
+                    return;
+                }
+
+                Console.WriteLine($"\n--- Page {page} of {totalPages} ---");
+                foreach (var g in guests.Skip((page - 1) * 3).Take(3))
+                {
+                    Console.WriteLine($"Guest ID: {g.guestID}");
+                    Console.WriteLine($"Name: {g.guestName}");
+                    Console.WriteLine($"Room: {(g.roomNumber == 0 ? "Not Assigned" : g.roomNumber)}");
+                }
+            }
         }
 
     }
