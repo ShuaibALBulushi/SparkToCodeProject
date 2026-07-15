@@ -515,6 +515,36 @@
                 }
             }
 
+            // Case 8
+            void UpdateRoomPrice()
+            {
+                Console.WriteLine("Enter a room number: ");
+                int rnum = int.Parse(Console.ReadLine());
+                var room = rooms.FirstOrDefault(r => r.roomNumber == rnum);
+
+                if(room != null)
+                {
+                    Console.WriteLine("Enter the updated  new price per night: ");
+                    double perNight = double.Parse(Console.ReadLine());
+
+                    if(perNight >= 0)
+                    {
+                        Console.WriteLine($"Old price per night: {room.pricePerNight}");
+                        room.pricePerNight = perNight;
+                        Console.WriteLine($"new price per night: {room.pricePerNight}");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Error: the newly entered price must be positive");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Error: room with {rnum} number is not found");
+                    return;
+                }
+            }
+
         }
 
     }
