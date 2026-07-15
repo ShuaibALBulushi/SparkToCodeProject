@@ -672,6 +672,56 @@ namespace Task8_Problem_Solving
                     return;
                 }
             }
+
+            // Case 12
+            void RemoveUnavailableRooms()
+            {
+                var filteredRooms = rooms.Where(r => r.isAvailable == false && !guests.Any(g => g.roomNumber == r.roomNumber));
+                var removableRooms = filteredRooms.OrderBy(r => r.roomNumber);
+
+                if (!removableRooms.Any())
+                {
+                    Console.WriteLine("All unavailable rooms are currently occupied. No rooms can be decommissioned.");
+                    return;
+                }
+
+                Console.WriteLine("### Safely Removable Rooms ###");
+                foreach (var room in removableRooms)
+                {
+                    Console.WriteLine($"Room Number: {room.roomNumber}");
+                    Console.WriteLine($"Room Type: {room.roomType}");
+                    Console.WriteLine($"Room Price: {room.pricePerNight.ToString("F2")} OMR\n");
+                }
+
+                Console.WriteLine($"Total removable rooms found: {removableRooms.Count()}");
+                Console.WriteLine("Confirm decommission of these rooms? (Y/N)");
+                string choice = Console.ReadLine();
+
+                if (choice.ToLower() == "y")
+                {
+                    rooms.RemoveAll(r => r.isAvailable == false && !guests.Any(g => g.roomNumber == r.roomNumber));
+
+                    Console.WriteLine("Decommission Successful!");
+                    Console.WriteLine($"Updated total room count: {rooms.Count}");
+
+                    Console.WriteLine("### Remaining Rooms ###");
+                    var remainingRooms = rooms.Select(r => new { r.roomNumber, r.roomType });
+                    foreach (var room in remainingRooms)
+                    {
+                        Console.WriteLine($"Room Number: {room.roomNumber}");
+                        Console.WriteLine($"Room Type: {room.roomType}\n");
+                    }
+                }
+                else if (choice.ToLower() == "n")
+                {
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Error: you must confirm decommission with either 'y' or 'n'");
+                    return;
+                }
+            }
         }
 
     }
