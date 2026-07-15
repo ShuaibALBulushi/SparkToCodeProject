@@ -545,6 +545,31 @@
                 }
             }
 
+            // Case 9
+            void GuestLookupByName()
+            {
+                Console.WriteLine("Enter name or partial name to search for: ");
+                string searchName = Console.ReadLine();
+
+                var guestFound = guests.Where(g => g.guestName.ToLower().Contains(searchName.ToLower()));
+
+                if(guestFound.Count() != 0)
+                {
+                    Console.WriteLine($"{guestFound.Count()} guests found with name '{searchName}' ");
+                    foreach (var guest in guestFound)
+                    {
+                        Console.WriteLine("### Found guest by name info ###");
+                        Console.WriteLine($"Guest ID: {guest.guestID}");
+                        Console.WriteLine($"Guest Name: {guest.guestName}");
+                        Console.WriteLine($"Guest Room number: {guest.roomNumber}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No guests matched that search");
+                }
+            }
+
         }
 
     }
