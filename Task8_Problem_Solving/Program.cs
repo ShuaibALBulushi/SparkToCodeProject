@@ -298,16 +298,17 @@ namespace Task8_Problem_Solving
                 {
                     foreach (Room room in sortedRooms)
                     {
+                        Console.WriteLine("### Room Info ###");
                         Console.WriteLine("Room Number: " + room.roomNumber);
                         Console.WriteLine("Room Type: " + room.roomType);
                         Console.WriteLine("Price Per Night: " + room.pricePerNight);
                         if (room.isAvailable)
                         {
-                            Console.WriteLine("Available");
+                            Console.WriteLine("Available\n");
                         }
                         else
                         {
-                            Console.WriteLine("Booked");
+                            Console.WriteLine("Booked\n");
                         }
                     }
                 }
@@ -329,6 +330,7 @@ namespace Task8_Problem_Solving
                 {
                     foreach(Guest guest in sortedGuests)
                     {
+                        Console.WriteLine("### Guest Info ###");
                         Console.WriteLine($"Guest ID: {guest.guestID}");
                         Console.WriteLine($"Guest Name: {guest.guestName}");
                         if(guest.roomNumber == 0)
@@ -340,7 +342,7 @@ namespace Task8_Problem_Solving
                             Console.WriteLine($"Room Number: {guest.roomNumber}");
                         }
                         Console.WriteLine($"Check-In date: {guest.checkInDate}");
-                        Console.WriteLine($"Total Nights: {guest.totalNights}");
+                        Console.WriteLine($"Total Nights: {guest.totalNights}\n");
                     }
                 }
             }
