@@ -1,6 +1,7 @@
 <Solution>
   <Folder Name="/Solution Items/">
     <File Path="DatabaseTasks/Airline Information System.drawio.png" />
+    <File Path="DatabaseTasks/College Management System.drawio.png" />
   </Folder>
   <Project Path="cSharpApplication/cSharpApplication.csproj" />
   <Project Path="session2/session2.csproj" Id="e8798989-5f53-465d-ace7-15606d04b84c" />
