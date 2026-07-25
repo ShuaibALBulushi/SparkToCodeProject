@@ -15,7 +15,7 @@ namespace EFCorePractice
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(
-            "Server=.;Database=CompanyDB;Trusted_Connection=True;TrustServerCertificate=True;"
+            "Server=.\\SQLEXPRESS;Database=CompanyDB;Trusted_Connection=True;TrustServerCertificate=True;"
             );
         }
     }
