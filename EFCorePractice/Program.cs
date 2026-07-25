@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
+﻿using EFCorePractice.Models;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace EFCorePractice
 {
@@ -7,9 +8,7 @@ namespace EFCorePractice
         static void Main(string[] args)
         {
             Console.WriteLine("#####    welcome     #####");
-
-            //project contect object
-            ProjectContext contect = new ProjectContext();
+            
 
             bool stop = false;
 
@@ -46,6 +45,53 @@ namespace EFCorePractice
             }
         }
 
+        public static void InsertNewObject()
+        {
+            ProjectContext context = new ProjectContext();
+            Console.WriteLine("Enter 1 if you want to add employee\nEnter 2 if you want to add department: ");
+            string choice = Console.ReadLine();
 
+            if (choice == "1")
+            {
+                Employee e1 = new Employee();
+                Console.WriteLine("Enter SSN: ");
+                e1.Ssn = Console.ReadLine();
+
+                Console.WriteLine("Enter name: ");
+                e1.EmployeeName = Console.ReadLine();
+
+                Console.WriteLine("Enter gender: ");
+                e1.EmployeeSex = Console.ReadLine();
+
+                Console.WriteLine("Enter salary: ");
+                e1.EmplyeeSalary = double.Parse(Console.ReadLine());
+
+                Console.WriteLine("Enter Address: ");
+                e1.EmployeeAddress = Console.ReadLine();
+
+                Console.WriteLine("Enter Birth date: ");
+                e1.EmployeeBDate = Console.ReadLine();
+
+                context.employees.Add(e1);
+                context.SaveChanges();
+
+            }
+            else if(choice == "2")
+            {
+                Department d1 = new Department();
+
+                Console.WriteLine("Enter name: ");
+                d1.DepartmentName = Console.ReadLine();
+
+                Console.WriteLine("Enter number: ");
+                d1.DepartmentNumber = int.Parse(Console.ReadLine());
+
+                context.departments.Add(d1);
+            }
+            else
+            {
+                Console.WriteLine("wrong input");
+            }
+        }
     }
 }
