@@ -87,6 +87,7 @@ namespace EFCorePractice
                 d1.DepartmentNumber = int.Parse(Console.ReadLine());
 
                 context.departments.Add(d1);
+                context.SaveChanges();
             }
             else
             {
@@ -128,6 +129,55 @@ namespace EFCorePractice
                 if (dp != null)
                 {
                     context.departments.Remove(dp);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("no department found with this id");
+                }
+            }
+            else
+            {
+                Console.WriteLine("wrong input");
+            }
+        }
+
+        public static void UpdateObject()
+        {
+            ProjectContext context = new ProjectContext();
+            Console.WriteLine("Enter 1 if you want to update employee salary\nEnter 2 if you want to update department number: ");
+            string choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                Console.WriteLine("Enter employee id you want to update: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Employee emp = context.employees.FirstOrDefault(e => e.EmployeeId == id);
+
+                if (emp != null)
+                {
+                    Console.WriteLine("Enter New salary: ");
+                    emp.EmplyeeSalary = double.Parse(Console.ReadLine());
+                    context.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("no employee found with this id");
+                }
+
+            }
+            else if (choice == "2")
+            {
+                Console.WriteLine("Enter department id you want to update: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Department dp = context.departments.FirstOrDefault(d => d.DepartmentId == id);
+
+                if (dp != null)
+                {
+                    Console.WriteLine("Enter New number: ");
+                    dp.DepartmentNumber = int.Parse(Console.ReadLine());
                     context.SaveChanges();
                 }
                 else
