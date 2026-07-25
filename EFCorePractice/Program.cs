@@ -29,7 +29,7 @@ namespace EFCorePractice
                         InsertNewObject(); break;
 
                     case "2":
-                        DeleteObject(); break;
+                        DeleteTableData(); break;
 
                     case "3":
                         UpdateObject(); break;
@@ -87,6 +87,53 @@ namespace EFCorePractice
                 d1.DepartmentNumber = int.Parse(Console.ReadLine());
 
                 context.departments.Add(d1);
+            }
+            else
+            {
+                Console.WriteLine("wrong input");
+            }
+        }
+
+        public static void DeleteTableData()
+        {
+            ProjectContext context = new ProjectContext();
+            Console.WriteLine("Enter 1 if you want to delete employee\nEnter 2 if you want to delete department: ");
+            string choice = Console.ReadLine();
+
+            if (choice == "1")
+            {
+                Console.WriteLine("Enter employee id you want to delete: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Employee emp = context.employees.FirstOrDefault(e => e.EmployeeId == id);
+
+                if (emp != null)
+                {
+                    context.employees.Remove(emp);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("no employee found with this id");
+                }
+
+            }
+            else if (choice == "2")
+            {
+                Console.WriteLine("Enter department id you want to delete: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Department dp = context.departments.FirstOrDefault(d => d.DepartmentId == id);
+
+                if (dp != null)
+                {
+                    context.departments.Remove(dp);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("no department found with this id");
+                }
             }
             else
             {
