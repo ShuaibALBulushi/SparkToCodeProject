@@ -12,7 +12,7 @@ namespace EFCorePractice.Models
         public double EmplyeeSalary { get; set; }
         public string EmployeeName { get; set; }
         public string EmployeeSex { get; set; }
-        public DateTime EmployeeBDate { get; set; }
+        public string EmployeeBDate { get; set; }
 
     }
 }
