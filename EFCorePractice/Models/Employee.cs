@@ -35,5 +35,9 @@ namespace EFCorePractice.Models
         public int SupervisorId { get; set; }
         public Employee supervisor { get; set; }
 
+
+        // dependent of 1-1
+        public Dependent dependent { get; set; }
+
     }
 }
