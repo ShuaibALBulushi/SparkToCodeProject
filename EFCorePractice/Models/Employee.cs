@@ -24,5 +24,16 @@ namespace EFCorePractice.Models
         [InverseProperty("Emp")]
         public List<Department> dept { get; set; }
 
+
+        // supervision self-relationship
+
+        [InverseProperty("supervisor")]
+        public List<Employee> employees { get; set; }
+
+
+        [ForeignKey("supervisor")]
+        public int SupervisorId { get; set; }
+        public Employee supervisor { get; set; }
+
     }
 }
