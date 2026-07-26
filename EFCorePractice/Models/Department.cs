@@ -20,5 +20,7 @@ namespace EFCorePractice.Models
         [ForeignKey("Emp")]
         public int EmployeeId { get; set; }
         public Employee Emp { get; set; }
+
+        public DateTime ManageStartDate { get; set; }
     }
 }
