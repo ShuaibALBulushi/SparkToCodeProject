@@ -12,6 +12,14 @@ namespace EFCorePractice
 
         public DbSet<Department> departments { set; get; }
 
+        public DbSet<Dependent> dependents { set; get; }
+
+        public DbSet<Project> projects { set; get; }
+
+        public DbSet<DepartmentLocation> departmentLocations { set; get; }
+
+        public DbSet<EmployeeProject> employeeProjects { set; get; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(
