@@ -39,5 +39,9 @@ namespace EFCorePractice.Models
         // dependent of 1-1
         public Dependent dependent { get; set; }
 
+
+        //work on M-M
+        public List<EmployeeProject> EmpProjects { get; set; }
+
     }
 }
