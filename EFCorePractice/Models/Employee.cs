@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace EFCorePractice.Models
 {
     public class Employee
     {
+        [Key]
         public int EmployeeId {  get; set; }
         public string Ssn { get; set; }
         public string EmployeeAddress { get; set; }

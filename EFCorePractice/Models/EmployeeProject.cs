@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace EFCorePractice.Models
 {
+    [PrimaryKey(nameof(EmployeeId), nameof(ProjectNumber))]
     public class EmployeeProject
     {
         // work on

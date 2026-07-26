@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
@@ -7,6 +8,7 @@ namespace EFCorePractice.Models
 {
     public class Project
     {
+        [Key]
         public int ProjectNumber { get; set; }
         public string ProjecutorName { get; set; }
         public string ProjectLocation { get; set; }
