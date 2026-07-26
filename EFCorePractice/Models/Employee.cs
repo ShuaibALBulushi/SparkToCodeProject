@@ -14,5 +14,8 @@ namespace EFCorePractice.Models
         public string EmployeeSex { get; set; }
         public string EmployeeBDate { get; set; }
 
+        //work for relationship 1-M
+        public List<Department> department {  get; set; }
+
     }
 }
