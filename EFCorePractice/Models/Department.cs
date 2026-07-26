@@ -12,9 +12,13 @@ namespace EFCorePractice.Models
         public int DepartmentNumber { get; set; }
 
         //work for relationship 1-M
-        [ForeignKey("Employee")]
-        public int EmployeeId { get; set; }
+        [InverseProperty("department")]
+        public List <Employee> Employee { get; set; }
 
-        public Employee Employee { get; set; }
+
+        //Manage 1-1
+        [ForeignKey("Emp")]
+        public int EmployeeId { get; set; }
+        public Employee Emp { get; set; }
     }
 }
