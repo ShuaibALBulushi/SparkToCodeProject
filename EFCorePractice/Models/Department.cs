@@ -22,5 +22,9 @@ namespace EFCorePractice.Models
         public Employee Emp { get; set; }
 
         public DateTime ManageStartDate { get; set; }
+
+
+        // control relationship 1-M
+        public List<Project> Projects { get; set; }
     }
 }
