@@ -126,7 +126,20 @@ namespace Task9_Problem_Solving
 
         static void AddProduct()
         {
-            // TODO: implement
+            Product product = new Product();
+
+            Console.WriteLine("Enter product name: ");
+            product.ProductName = Console.ReadLine();
+
+            Console.WriteLine("Enter product price: ");
+            product.ProductPrice = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Category Id: ");
+            product.CategoryId = int.Parse(Console.ReadLine());
+
+            context.products.Add(product);
+            context.SaveChanges();
+            Console.WriteLine("Product added successfully");
         }
 
         static void ViewAllProducts()

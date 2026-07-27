@@ -10,7 +10,7 @@ namespace Task9_Problem_Solving.Models
     {
         [Key]
         public int ProductId { get; set; }
-        public string PublicName { get; set; }
+        public string ProductName { get; set; }
         public double ProductPrice { get; set; }
 
 
