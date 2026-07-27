@@ -12,5 +12,9 @@ namespace Task9_Problem_Solving.Models
         public string UserName { get; set; }
         public string UserPassword { get; set; }
         public string UserEmail { get; set; }
+
+
+        // Place order 1:M
+        public List<Order> orders { get; set; }
     }
 }
