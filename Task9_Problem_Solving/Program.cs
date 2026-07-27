@@ -389,12 +389,59 @@ namespace Task9_Problem_Solving
 
         static void ViewReviewsForProduct()
         {
-            // TODO: implement
+            Console.WriteLine("Enter product name: ");
+            string proName = Console.ReadLine();
+
+            Product product = context.products.FirstOrDefault(p => p.ProductName == proName);
+
+            if (product != null)
+            {
+                var productOrders = context.orderedProducts
+                    .Include(po => po.order)
+                    .ThenInclude(o => o.Review)
+                    .Where(po => po.ProductId == product.ProductId)
+                    .ToList();
+
+                if (productOrders.Count != 0)
+                {
+                    foreach (var item in productOrders)
+                    {
+                        Console.WriteLine("=============================");
+                        Console.WriteLine($"Order ID: {item.OrderId}");
+
+                        if (item.order.Review != null)
+                        {
+                            Console.WriteLine($"Rating: {item.order.Review.Rating}");
+                            Console.WriteLine($"Comment: {item.order.Review.Comment}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No review for this order");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No orders found for this product");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: Product not found");
+            }
         }
 
         static void Logout()
         {
-            // TODO: implement - reset loggedInUserId back to 0
+            if(loggedInUserId != 0)
+            {
+                loggedInUserId = 0;
+                Console.WriteLine("Successfully logged out");
+            }
+            else
+            {
+                Console.WriteLine("Already logged out");
+            }
         }
     }
 }
