@@ -8,5 +8,9 @@ namespace Task9_Problem_Solving.Models
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
+
+
+        // Has 1:1
+        public Product product { get; set; }
     }
 }
