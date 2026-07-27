@@ -1,5 +1,5 @@
 ﻿using Task9_Problem_Solving.Models;
-
+using Microsoft.EntityFrameworkCore;
 namespace Task9_Problem_Solving
 {
     internal class Program
@@ -144,7 +144,57 @@ namespace Task9_Problem_Solving
 
         static void ViewAllProducts()
         {
-            // TODO: implement
+            Console.WriteLine("do you want to filter by category(y,n):");
+            string chooser = Console.ReadLine();
+
+            if (chooser.ToLower() == "y")
+            {
+                Console.WriteLine("Enter the category name:");
+                string catName = Console.ReadLine();
+
+                Category category = context.Categories.FirstOrDefault(c => c.CategoryName == catName);
+
+                if (category == null)
+                {
+                    Console.WriteLine("Error: category not found");
+                    return;
+                }
+
+                var product = context.products.Where(p => p.CategoryId == category.CategoryId);
+
+                if (product.Any())
+                {
+                    foreach (var item in product)
+                    {
+                        Console.WriteLine("=============================");
+                        Console.WriteLine($"Product ID: {item.ProductId}");
+                        Console.WriteLine($"Product Name: {item.ProductName}");
+                        Console.WriteLine($"Product Price: {item.ProductPrice}");
+                        Console.WriteLine($"Category Name: {catName}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error: no product found");
+                }
+            }
+            else if (chooser.ToLower() == "n")
+            {
+                var allProducts = context.products.Include(p => p.category);
+
+                foreach (Product p in allProducts)
+                {
+                    Console.WriteLine("=============================");
+                    Console.WriteLine($"Product ID: {p.ProductId}");
+                    Console.WriteLine($"Product Name: {p.ProductName}");
+                    Console.WriteLine($"Product Price: {p.ProductPrice}");
+                    Console.WriteLine($"Category Name: {(p.category != null ? p.category.CategoryName : "None")}");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: Invalid choice");
+            }
         }
 
         static void PlaceOrder()
