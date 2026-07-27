@@ -91,8 +91,24 @@ namespace Task9_Problem_Solving
         }
 
         static void Login()
-        {
-            // TODO: implement - on success, set loggedInUserId = <found user's Id>
+        {         
+            Console.Write("Enter Email: ");
+            string email = Console.ReadLine();
+
+            Console.Write("Enter Password: ");
+            string pass = Console.ReadLine();
+
+            User user = context.users.FirstOrDefault(e =>  e.UserEmail == email && e.UserPassword == pass );
+
+            if (user != null)
+            {
+                loggedInUserId = user.UserId;
+            }
+            else
+            {
+                Console.WriteLine("Error: user not found");
+            }
+
         }
 
         static void AddCategory()
