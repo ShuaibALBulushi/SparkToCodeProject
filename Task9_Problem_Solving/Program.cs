@@ -1,4 +1,6 @@
-﻿namespace Task9_Problem_Solving
+﻿using Task9_Problem_Solving.Models;
+
+namespace Task9_Problem_Solving
 {
     internal class Program
     {
@@ -74,7 +76,18 @@
 
         static void RegisterUser()
         {
-            // TODO: implement (see Part 3 requirements)
+            User user = new User();
+            Console.Write("Enter Username: ");
+            user.UserName = Console.ReadLine();
+
+            Console.Write("Enter Password: ");
+            user.UserPassword = Console.ReadLine();
+
+            Console.Write("Enter Email: ");
+            user.UserEmail = Console.ReadLine();
+
+            context.users.Add(user);
+            context.SaveChanges();
         }
 
         static void Login()
