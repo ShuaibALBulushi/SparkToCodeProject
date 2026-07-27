@@ -20,7 +20,7 @@ namespace Task9_Problem_Solving
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(
-            "Server=.\\SQLEXPRESS;Database=CompanyDB;Trusted_Connection=True;TrustServerCertificate=True;"
+            "Server=.\\SQLEXPRESS;Database=e-commerceDB;Trusted_Connection=True;TrustServerCertificate=True;"
             );
         }
     }
