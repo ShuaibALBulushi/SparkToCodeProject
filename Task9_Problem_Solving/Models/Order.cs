@@ -14,5 +14,9 @@ namespace Task9_Problem_Solving.Models
 
         // Caontain M:N
         public List<ProductOrdered> ProductOrdered { get; set; }
+
+
+        // have 1:1
+        public Review Review { get; set; }
     }
 }
