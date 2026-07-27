@@ -256,63 +256,6 @@ namespace Task9_Problem_Solving
             }
         }
 
-        static void PlaceOrder()
-        {
-            if (loggedInUserId != 0)
-            {
-                try
-                {
-                    Console.WriteLine("How many products you want to order: ");
-                    int proNum = int.Parse(Console.ReadLine());
-
-                    Order order = new Order
-                    {
-                        UserId = loggedInUserId,
-                        OrderDate = DateTime.Now,
-                        ProductOrdered = new List<ProductOrdered>()
-                    };
-
-                    for (int i = 0; i < proNum; i++)
-                    {
-                        Console.WriteLine("Enter product name: ");
-                        string proName = Console.ReadLine();
-
-                        Product product = context.products.FirstOrDefault(p => p.ProductName == proName);
-
-                        if (product != null)
-                        {
-                            Console.WriteLine("Enter the quantity: ");
-                            int quantity = int.Parse(Console.ReadLine());
-
-                            ProductOrdered item = new ProductOrdered
-                            {
-                                ProductId = product.ProductId,
-                                Quantity = quantity
-                            };
-
-                            order.ProductOrdered.Add(item);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Error: Product not found");
-                            return;
-                        }
-                    }
-
-                    context.orders.Add(order);
-                    context.SaveChanges();
-                    Console.WriteLine("Order placed successfully!");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: system only accepts integer numbers");
-                }
-            }
-            else
-            {
-                Console.WriteLine("Error: User is not logged in");
-            }
-        }
 
         static void ViewMyOrders()
         {
@@ -352,12 +295,96 @@ namespace Task9_Problem_Solving
 
         static void ViewOrderDetails()
         {
-            // TODO: implement
+            Console.WriteLine("Enter order Id: ");
+            int orderid = int.Parse(Console.ReadLine());
+
+            Order order = context.orders
+                .Include(op => op.ProductOrdered)
+                .ThenInclude(p => p.product)
+                .Include(o => o.Review)
+                .FirstOrDefault(o => o.OrderId == orderid);
+
+            if (order != null)
+            {
+                double orderTotal = 0;
+
+                Console.WriteLine("=============================");
+                Console.WriteLine($"Order ID: {order.OrderId}");
+                Console.WriteLine($"Order Date: {order.OrderDate}");
+                Console.WriteLine("Products:");
+
+                foreach (var item in order.ProductOrdered)
+                {
+                    double itemTotal = item.product.ProductPrice * item.Quantity;
+                    orderTotal += itemTotal;
+                    Console.WriteLine($"  - {item.product.ProductName} (Quantity: {item.Quantity}) - Price: {item.product.ProductPrice} each");
+                }
+
+                Console.WriteLine($"Order Total: {orderTotal}");
+
+                if (order.Review != null)
+                {
+                    Console.WriteLine($"Review: {order.Review.Comment}");
+                }
+                else
+                {
+                    Console.WriteLine("Review: No review exists for this order.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: no order found");
+            }
         }
 
         static void AddReview()
         {
-            // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId != 0)
+            {
+                Console.WriteLine("Enter Order id: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Order order = context.orders.FirstOrDefault(o => o.OrderId == id);
+
+                if (order == null)
+                {
+                    Console.WriteLine("Error: Order not found");
+                    return;
+                }
+
+                if (order.UserId != loggedInUserId)
+                {
+                    Console.WriteLine("Error: This order does not belong to you");
+                    return;
+                }
+
+                Review review = context.reviews.FirstOrDefault(r => r.OrderId == id);
+
+                if (review == null)
+                {
+                    Review rev = new Review();
+
+                    Console.WriteLine("Enter your Rating(1 to 5):");
+                    rev.Rating = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Enter your comment:");
+                    rev.Comment = Console.ReadLine();
+
+                    rev.OrderId = id;
+                    context.reviews.Add(rev);
+                    context.SaveChanges();
+                    Console.WriteLine("Review added successfully");
+                }
+                else
+                {
+                    Console.WriteLine("Error: order already have a review");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: User is not logged in");
+                return;
+            }
         }
 
         static void ViewReviewsForProduct()
