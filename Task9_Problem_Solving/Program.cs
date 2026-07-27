@@ -77,7 +77,7 @@ namespace Task9_Problem_Solving
         static void RegisterUser()
         {
             User user = new User();
-            Console.Write("Enter Username: ");
+            Console.Write("Enter User name: ");
             user.UserName = Console.ReadLine();
 
             Console.Write("Enter Password: ");
@@ -88,6 +88,7 @@ namespace Task9_Problem_Solving
 
             context.users.Add(user);
             context.SaveChanges();
+            Console.WriteLine("user registered successfully");
         }
 
         static void Login()
@@ -113,7 +114,14 @@ namespace Task9_Problem_Solving
 
         static void AddCategory()
         {
-            // TODO: implement
+            Category category = new Category();
+
+            Console.Write("Enter Category name: ");
+            category.CategoryName = Console.ReadLine();
+
+            context.Categories.Add(category);
+            context.SaveChanges();
+            Console.WriteLine("Category added successfully");
         }
 
         static void AddProduct()
