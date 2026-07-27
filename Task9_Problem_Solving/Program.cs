@@ -104,6 +104,7 @@ namespace Task9_Problem_Solving
             if (user != null)
             {
                 loggedInUserId = user.UserId;
+                Console.WriteLine("Successfully logged in");
             }
             else
             {
