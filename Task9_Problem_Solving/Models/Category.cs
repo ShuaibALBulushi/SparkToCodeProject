@@ -12,7 +12,7 @@ namespace Task9_Problem_Solving.Models
         public string CategoryName { get; set; }
 
 
-        // Has 1:1
+        // Has 1:M
         public Product product { get; set; }
     }
 }

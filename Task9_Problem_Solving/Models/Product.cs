@@ -14,7 +14,7 @@ namespace Task9_Problem_Solving.Models
         public double ProductPrice { get; set; }
 
 
-        // Has 1:1
+        // Has 1:M
         [ForeignKey("category")]
         public int CategoryId { get; set; }
         public Category category { get; set; }
