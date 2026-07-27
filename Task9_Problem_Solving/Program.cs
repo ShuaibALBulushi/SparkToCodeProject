@@ -199,7 +199,60 @@ namespace Task9_Problem_Solving
 
         static void PlaceOrder()
         {
-            // TODO: implement - check loggedInUserId != 0 first
+            if (loggedInUserId != 0)
+            {
+                try
+                {
+                    Console.WriteLine("How many products you want to order: ");
+                    int proNum = int.Parse(Console.ReadLine());
+
+                    Order order = new Order
+                    {
+                        UserId = loggedInUserId,
+                        OrderDate = DateTime.Now,
+                        ProductOrdered = new List<ProductOrdered>()
+                    };
+
+                    for (int i = 0; i < proNum; i++)
+                    {
+                        Console.WriteLine("Enter product name: ");
+                        string proName = Console.ReadLine();
+
+                        Product product = context.products.FirstOrDefault(p => p.ProductName == proName);
+
+                        if (product != null)
+                        {
+                            Console.WriteLine("Enter the quantity: ");
+                            int quantity = int.Parse(Console.ReadLine());
+
+                            ProductOrdered item = new ProductOrdered
+                            {
+                                ProductId = product.ProductId,
+                                Quantity = quantity
+                            };
+
+                            order.ProductOrdered.Add(item);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Product not found");
+                            return;
+                        }
+                    }
+
+                    context.orders.Add(order);
+                    context.SaveChanges();
+                    Console.WriteLine("Order placed successfully!");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: system only accepts integer numbers");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Error: User is not logged in");
+            }
         }
 
         static void ViewMyOrders()
