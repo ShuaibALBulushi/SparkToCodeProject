@@ -59,5 +59,27 @@ namespace WebAPIPractice.Controllers
             }
         }
 
+        [HttpGet("getEmployee")]
+        public IActionResult getEmployee(int id)
+        {
+            Employee emp = context.employees.FirstOrDefault(e => e.EmployeeId == id);
+
+            if (emp != null)
+            {
+                return Ok(emp);
+            }
+            else
+            {
+                return NotFound("Employee not found");
+            }
+        }
+
+        [HttpGet("getAllEmployees")]
+        public IActionResult getAllEmployees()
+        {
+            List<Employee> emp = context.employees.ToList();
+            return Ok(emp);
+        }
+
     }
 }
