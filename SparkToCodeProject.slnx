@@ -20,4 +20,5 @@
   <Project Path="Task7_Problem_Solving/Task7_Problem_Solving.csproj" Id="df9d5501-5c5a-4676-ba52-9878e4fdf620" />
   <Project Path="Task8_Problem_Solving/Task8_Problem_Solving.csproj" Id="a2343064-3405-47a5-96ee-2eb75dbd6ea0" />
   <Project Path="Task9_Problem_Solving/Task9_Problem_Solving.csproj" Id="e9979f4e-c56e-4d3d-be27-3965b6b2faaa" />
+  <Project Path="WebAPIPractice/WebAPIPractice.csproj" Id="0c093b9e-6589-49b8-a547-0204941da86b" />
 </Solution>
