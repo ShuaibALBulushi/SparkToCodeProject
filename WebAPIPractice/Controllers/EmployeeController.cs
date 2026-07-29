@@ -15,6 +15,8 @@ namespace WebAPIPractice.Controllers
             context = _context;
         }
 
+
+
         [HttpPost("AddEmployee")]
         public IActionResult AddEmployee(Employee emp)
         {
@@ -22,6 +24,39 @@ namespace WebAPIPractice.Controllers
             context.SaveChanges();
 
             return Ok(emp.EmployeeId);
+        }
+
+
+
+        [HttpPatch("UpdateEmployeeName")]
+        public IActionResult UpdateEmployeeName(int id, string name)
+        {
+            Employee emp = context.employees.FirstOrDefault(e => e.EmployeeId == id);
+
+            emp.EmployeeName = name;
+            context.SaveChanges();
+
+            return Ok($"Employee name successfully changed to {emp.EmployeeName}");
+        }
+
+
+
+        [HttpDelete("DeleteEmployeeById")]
+        public IActionResult DeleteEmployeeById(int id)
+        {
+            Employee emp = context.employees.FirstOrDefault(e => e.EmployeeId == id);
+            
+            if(emp != null)
+            {
+                context.employees.Remove(emp);
+                context.SaveChanges();
+
+                return Ok("Employee successfully deleted");
+            }
+            else
+            {
+                return NotFound("Employee not found");
+            }
         }
 
     }
